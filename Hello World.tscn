@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://turtle-logo.png" type="Texture" id=1]
+
+[node name="Hello World" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = 312.0
+margin_top = 90.0
+margin_right = 712.0
+margin_bottom = 490.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Label" type="Label" parent="ColorRect"]
+margin_left = 168.0
+margin_top = 206.0
+margin_right = 221.0
+margin_bottom = 220.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "fuck you"
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 504, 272 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 1 )
