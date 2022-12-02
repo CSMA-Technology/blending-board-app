@@ -6,11 +6,11 @@
     <string>development</string>
 
     <key>teamID</key>
-    <string>CSMA Technology, LLC</string>
+    <string>D5S846FCRY</string>
 
     <key>provisioningProfiles</key>
     <dict>
-        <key>com.csma.game</key>
+        <key>com.csma.blendi</key>
         <string></string>
     </dict>
 

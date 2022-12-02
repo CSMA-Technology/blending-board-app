@@ -1,0 +1,203 @@
+2022-12-02 15:12:03 +0000 [MT] Initial pipeline context: <IDEDistributionProcessingPipelineContext: 0x15c0c5660; archive(resolved)="<IDEArchive: 0x600000ded320>", distributionTask(resolved)="2", distributionDestination(resolved)="1", distributionMethod(resolved)="<IDEDistributionMethodDevelopmentSigned: 0x600002bffca0>", team(resolved)="<IDEProvisioningBasicTeam: 0x6000028e3260; teamID='D5S846FCRY', teamName='(null)'>">
+	Chain (13, self inclusive):
+	<IDEDistributionProcessingPipelineContext: 0x15c0c5660; archive = "<IDEArchive: 0x600000ded320>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x600002bffca0>", team="<IDEProvisioningBasicTeam: 0x6000028e3260; teamID='D5S846FCRY', teamName='(null)'>">
+	<IDEDistributionProcessingPipelineContext: 0x15c0c53f0; archive = "<IDEArchive: 0x600000ded320>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x600002bffca0>", team="<IDEProvisioningBasicTeam: 0x6000028e3260; teamID='D5S846FCRY', teamName='(null)'>">
+	<IDEDistributionContext: 0x15c0c4ff0; archive = "<IDEArchive: 0x600000ded320>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x600002bffca0>", team="<IDEProvisioningBasicTeam: 0x6000028e3260; teamID='D5S846FCRY', teamName='(null)'>">
+	<IDEDistributionContext: 0x14ae5e5c0; archive = "<IDEArchive: 0x600000ded320>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x600002bffca0>", team="<IDEProvisioningBasicTeam: 0x6000028e3260; teamID='D5S846FCRY', teamName='(null)'>">
+	<IDEDistributionContext: 0x14ae5de70; archive = "<IDEArchive: 0x600000ded320>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x600002bffca0>", team="<IDEProvisioningBasicTeam: 0x6000028e3260; teamID='D5S846FCRY', teamName='(null)'>">
+	<IDEDistributionContext: 0x14ae5d940; archive = "<IDEArchive: 0x600000ded320>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x600002bffca0>", team="<IDEProvisioningBasicTeam: 0x6000028e3260; teamID='D5S846FCRY', teamName='(null)'>">
+	<IDEDistributionContext: 0x14ae5c7c0; archive = "<IDEArchive: 0x600000ded320>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x600002bffca0>", team="<IDEProvisioningBasicTeam: 0x6000028e3260; teamID='D5S846FCRY', teamName='(null)'>">
+	<IDEDistributionContext: 0x14ae5c3a0; archive = "<IDEArchive: 0x600000ded320>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x600002bffca0>", team="<IDEProvisioningBasicTeam: 0x6000028e3260; teamID='D5S846FCRY', teamName='(null)'>">
+	<IDEDistributionContext: 0x14ae59500; archive = "<IDEArchive: 0x600000ded320>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x600002bffca0>", team="<IDEProvisioningBasicTeam: 0x6000028e3260; teamID='D5S846FCRY', teamName='(null)'>">
+	<IDEDistributionContext: 0x15aee5bb0; archive = "<IDEArchive: 0x600000ded320>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x600002bffca0>", team="(null)">
+	<IDEDistributionContext: 0x14ae584b0; archive = "<IDEArchive: 0x600000ded320>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x600002bffca0>", team="(null)">
+	<IDEDistributionContext: 0x14ae49320; archive = "<IDEArchive: 0x600000ded320>", distributionMethod="<IDEDistributionMethodDevelopmentSigned: 0x600002bffca0>", team="(null)">
+	<IDEDistributionContext: 0x13c104aa0; archive = "<IDEArchive: 0x600000ded320>", distributionMethod="(null)", team="(null)">
+</IDEDistributionProcessingPipelineContext: 0x15c0c5660>
+2022-12-02 15:12:03 +0000 [MT] Processing step: IDEDistributionCreateDestRootStep
+2022-12-02 15:12:03 +0000 [MT] Processing step: IDEDistributionCopyItemStep
+2022-12-02 15:12:03 +0000 [MT] Running /usr/bin/ditto '-V' '/Users/scruz/Projects/blending-board-app/Blending Board App.xcarchive/Products/Applications/Blending Board App.app' '/var/folders/94/qrx48t4x1y9fksl28stzqmy80000gn/T/XcodeDistPipeline.~~~2K8Q1k/Root/Payload/Blending Board App.app'
+2022-12-02 15:12:03 +0000  >>> Copying /Users/scruz/Projects/blending-board-app/Blending Board App.xcarchive/Products/Applications/Blending Board App.app 
+2022-12-02 15:12:03 +0000  copying file ./_CodeSignature/CodeResources ... 
+2022-12-02 15:12:03 +0000  9462 bytes for ./_CodeSignature/CodeResources
+2022-12-02 15:12:03 +0000  copying file ./LaunchImage-1100-Portrait-2436h@3x.png ... 
+2022-12-02 15:12:03 +0000  96061 bytes for ./LaunchImage-1100-Portrait-2436h@3x.png
+2022-12-02 15:12:03 +0000  copying file ./en.lproj/InfoPlist.strings ... 
+2022-12-02 15:12:03 +0000  42 bytes for ./en.lproj/InfoPlist.strings
+2022-12-02 15:12:03 +0000  copying file ./AppIcon60x60@2x.png ... 
+2022-12-02 15:12:03 +0000  14822 bytes for ./AppIcon60x60@2x.png
+2022-12-02 15:12:03 +0000  copying file ./LaunchImage-1100-Landscape-2436h@3x.png ... 
+2022-12-02 15:12:03 +0000  94324 bytes for ./LaunchImage-1100-Landscape-2436h@3x.png
+2022-12-02 15:12:03 +0000  copying file ./LaunchImage-800-667h@2x.png ... 
+2022-12-02 15:12:03 +0000  46691 bytes for ./LaunchImage-800-667h@2x.png
+2022-12-02 15:12:03 +0000  copying file ./AppIcon40x40@3x.png ... 
+2022-12-02 15:12:03 +0000  14822 bytes for ./AppIcon40x40@3x.png
+2022-12-02 15:12:03 +0000  copying file ./AppIcon40x40@2x.png ... 
+2022-12-02 15:12:03 +0000  7511 bytes for ./AppIcon40x40@2x.png
+2022-12-02 15:12:03 +0000  copying file ./Blending Board App ... 
+2022-12-02 15:12:03 +0000  26993984 bytes for ./Blending Board App
+copying file ./AppIcon60x60@3x.png ... 
+2022-12-02 15:12:03 +0000  27664 bytes for ./AppIcon60x60@3x.png
+2022-12-02 15:12:03 +0000  copying file ./LaunchImage-700-Portrait~ipad.png ... 
+2022-12-02 15:12:03 +0000  46612 bytes for ./LaunchImage-700-Portrait~ipad.png
+2022-12-02 15:12:03 +0000  copying file ./Assets.car ... 
+2022-12-02 15:12:03 +0000  347432 bytes for ./Assets.car
+2022-12-02 15:12:03 +0000  copying file ./AppIcon40x40@2x~ipad.png ... 
+2022-12-02 15:12:03 +0000  7511 bytes for ./AppIcon40x40@2x~ipad.png
+2022-12-02 15:12:03 +0000  copying file ./AppIcon76x76@2x~ipad.png ... 
+2022-12-02 15:12:03 +0000  21488 bytes for ./AppIcon76x76@2x~ipad.png
+2022-12-02 15:12:03 +0000  copying file ./LaunchImage-800-Portrait-736h@3x.png ... 
+2022-12-02 15:12:03 +0000  112223 bytes for ./LaunchImage-800-Portrait-736h@3x.png
+2022-12-02 15:12:03 +0000  copying file ./LaunchImage-700@2x.png ... 
+2022-12-02 15:12:03 +0000  33725 bytes for ./LaunchImage-700@2x.png
+2022-12-02 15:12:03 +0000  copying file ./AppIcon83.5x83.5@2x~ipad.png ... 
+2022-12-02 15:12:03 +0000  24845 bytes for ./AppIcon83.5x83.5@2x~ipad.png
+2022-12-02 15:12:03 +0000  copying file ./LaunchImage-700-568h@2x.png ... 
+2022-12-02 15:12:03 +0000  34627 bytes for ./LaunchImage-700-568h@2x.png
+2022-12-02 15:12:03 +0000  copying file ./Blending Board App.pck ... 
+2022-12-02 15:12:03 +0000  131024 bytes for ./Blending Board App.pck
+2022-12-02 15:12:03 +0000  copying file ./LaunchImage-700-Landscape@2x~ipad.png ... 
+2022-12-02 15:12:03 +0000  156218 bytes for ./LaunchImage-700-Landscape@2x~ipad.png
+2022-12-02 15:12:03 +0000  copying file ./AppIcon40x40~ipad.png ... 
+2022-12-02 15:12:03 +0000  2452 bytes for ./AppIcon40x40~ipad.png
+2022-12-02 15:12:03 +0000  copying file ./embedded.mobileprovision ... 
+2022-12-02 15:12:03 +0000  12294 bytes for ./embedded.mobileprovision
+2022-12-02 15:12:03 +0000  copying file ./LaunchImage-800-Landscape-736h@3x.png ... 
+2022-12-02 15:12:03 +0000  109828 bytes for ./LaunchImage-800-Landscape-736h@3x.png
+2022-12-02 15:12:03 +0000  copying file ./LaunchImage-700-Portrait@2x~ipad.png ... 
+2022-12-02 15:12:03 +0000  159701 bytes for ./LaunchImage-700-Portrait@2x~ipad.png
+2022-12-02 15:12:03 +0000  copying file ./LaunchImage-700-Landscape~ipad.png ... 
+2022-12-02 15:12:03 +0000  44896 bytes for ./LaunchImage-700-Landscape~ipad.png
+2022-12-02 15:12:03 +0000  copying file ./Info.plist ... 
+2022-12-02 15:12:03 +0000  2065 bytes for ./Info.plist
+2022-12-02 15:12:03 +0000  copying file ./PkgInfo ... 
+2022-12-02 15:12:03 +0000  8 bytes for ./PkgInfo
+2022-12-02 15:12:03 +0000  copying file ./AppIcon76x76~ipad.png ... 
+2022-12-02 15:12:03 +0000  7103 bytes for ./AppIcon76x76~ipad.png
+2022-12-02 15:12:03 +0000 [MT] /usr/bin/ditto exited with 0
+2022-12-02 15:12:03 +0000 [MT] Processing step: IDEDistributionEmbedProfileStep
+2022-12-02 15:12:03 +0000 [MT] Processing step: IDEDistributionInfoPlistStep
+2022-12-02 15:12:03 +0000 [MT] Skipping step: IDEDistributionInfoPlistStep because it said so
+2022-12-02 15:12:03 +0000 [MT] Processing step: IDEDistributionAppThinningPlistStep
+2022-12-02 15:12:03 +0000 [MT] Skipping step: IDEDistributionAppThinningPlistStep because it said so
+2022-12-02 15:12:03 +0000 [MT] Processing step: IDEDistributionCompileBitcodeStep
+2022-12-02 15:12:03 +0000 [MT] Skipping step: IDEDistributionCompileBitcodeStep because it said so
+2022-12-02 15:12:03 +0000 [MT] Processing step: IDEDistributionCodeSlimmingStep
+2022-12-02 15:12:03 +0000 [MT] Processing step: IDEDistributionCopyBCSymbolMapsStep
+2022-12-02 15:12:03 +0000 [MT] Skipping step: IDEDistributionCopyBCSymbolMapsStep because it said so
+2022-12-02 15:12:03 +0000 [MT] Processing step: IDEDistributionSymbolsStep
+2022-12-02 15:12:03 +0000 [MT] Skipping step: IDEDistributionSymbolsStep because it said so
+2022-12-02 15:12:03 +0000 [MT] Processing step: IDEDistributionAppThinningStep
+2022-12-02 15:12:03 +0000 [MT] Skipping step: IDEDistributionAppThinningStep because it said so
+2022-12-02 15:12:03 +0000 [MT] Processing step: IDEDistributionArchThinningStep
+2022-12-02 15:12:03 +0000 [MT] Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/94/qrx48t4x1y9fksl28stzqmy80000gn/T/XcodeDistPipeline.~~~2K8Q1k/Root/Payload/Blending Board App.app/Blending Board App' '-verify_arch' 'arm64e'
+2022-12-02 15:12:03 +0000 [MT] /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2022-12-02 15:12:03 +0000 [MT] Skipping architecture thinning for item "Blending Board App" because arch "arm64e" wasn't found
+2022-12-02 15:12:03 +0000 [MT] Processing step: IDEDistributionODRStep
+2022-12-02 15:12:03 +0000 [MT] Processing step: IDEDistributionStripXattrsStep
+2022-12-02 15:12:03 +0000 [MT] Running /usr/bin/xattr '-crs' '/var/folders/94/qrx48t4x1y9fksl28stzqmy80000gn/T/XcodeDistPipeline.~~~2K8Q1k/Root/Payload/Blending Board App.app'
+2022-12-02 15:12:03 +0000 [MT] /usr/bin/xattr exited with 0
+2022-12-02 15:12:03 +0000 [MT] Processing step: IDEDistributionCodesignStep
+2022-12-02 15:12:03 +0000 [MT] Entitlements for <IDEDistributionItem: 0x600000d3b2a0; bundleID='com.csma.blendi', path='<DVTFilePath:0x6000002c9ea0:'/Users/scruz/Projects/blending-board-app/Blending Board App.xcarchive/Products/Applications/Blending Board App.app'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x600000a72670; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600001e9dfa0; name='Apple Development: cruz.stephanie2294@gmail.com (23B7JG767F)', hash='D8DBAF0C2EF5C930CDE208B43706C1BD9AA4B8F1', serialNumber='41D841149436955D24063455F07DDFA8', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-12-01 20:23:13 +0000''>', entitlements='{
+    "application-identifier" = "D5S846FCRY.com.csma.blendi";
+    "com.apple.developer.team-identifier" = D5S846FCRY;
+    "get-task-allow" = 1;
+}', teamID='D5S846FCRY', identifier='com.csma.blendi', executablePath='<DVTFilePath:0x6000002c91f0:'/Users/scruz/Projects/blending-board-app/Blending Board App.xcarchive/Products/Applications/Blending Board App.app/Blending Board App'>', hardenedRuntime='0'>'>: {
+    "application-identifier" = "D5S846FCRY.com.csma.blendi";
+    "com.apple.developer.team-identifier" = D5S846FCRY;
+    "get-task-allow" = 1;
+}
+2022-12-02 15:12:03 +0000 [MT] Entitlements for <IDEDistributionItem: 0x600000d3b2a0; bundleID='com.csma.blendi', path='<DVTFilePath:0x6000002c9ea0:'/Users/scruz/Projects/blending-board-app/Blending Board App.xcarchive/Products/Applications/Blending Board App.app'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x600000a72670; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600001e9e3c0; name='Apple Development: cruz.stephanie2294@gmail.com (23B7JG767F)', hash='D8DBAF0C2EF5C930CDE208B43706C1BD9AA4B8F1', serialNumber='41D841149436955D24063455F07DDFA8', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-12-01 20:23:13 +0000''>', entitlements='{
+    "application-identifier" = "D5S846FCRY.com.csma.blendi";
+    "com.apple.developer.team-identifier" = D5S846FCRY;
+    "get-task-allow" = 1;
+}', teamID='D5S846FCRY', identifier='com.csma.blendi', executablePath='<DVTFilePath:0x6000002c91f0:'/Users/scruz/Projects/blending-board-app/Blending Board App.xcarchive/Products/Applications/Blending Board App.app/Blending Board App'>', hardenedRuntime='0'>'> are: {
+    "application-identifier" = "D5S846FCRY.com.csma.blendi";
+    "com.apple.developer.team-identifier" = D5S846FCRY;
+    "get-task-allow" = 1;
+}
+2022-12-02 15:12:03 +0000 [MT] Writing entitlements for <IDEDistributionItem: 0x600000d3b2a0; bundleID='com.csma.blendi', path='<DVTFilePath:0x6000002c9ea0:'/Users/scruz/Projects/blending-board-app/Blending Board App.xcarchive/Products/Applications/Blending Board App.app'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x600000a72670; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600001e9e680; name='Apple Development: cruz.stephanie2294@gmail.com (23B7JG767F)', hash='D8DBAF0C2EF5C930CDE208B43706C1BD9AA4B8F1', serialNumber='41D841149436955D24063455F07DDFA8', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-12-01 20:23:13 +0000''>', entitlements='{
+    "application-identifier" = "D5S846FCRY.com.csma.blendi";
+    "com.apple.developer.team-identifier" = D5S846FCRY;
+    "get-task-allow" = 1;
+}', teamID='D5S846FCRY', identifier='com.csma.blendi', executablePath='<DVTFilePath:0x6000002c91f0:'/Users/scruz/Projects/blending-board-app/Blending Board App.xcarchive/Products/Applications/Blending Board App.app/Blending Board App'>', hardenedRuntime='0'>'> to: /var/folders/94/qrx48t4x1y9fksl28stzqmy80000gn/T/XcodeDistPipeline.~~~2K8Q1k/entitlements~~~Y23Wxw
+2022-12-02 15:12:03 +0000 [MT] Running /usr/bin/codesign '-vvv' '--force' '--sign' 'D8DBAF0C2EF5C930CDE208B43706C1BD9AA4B8F1' '--entitlements' '/var/folders/94/qrx48t4x1y9fksl28stzqmy80000gn/T/XcodeDistPipeline.~~~2K8Q1k/entitlements~~~Y23Wxw' '--generate-entitlement-der' '--preserve-metadata=identifier,flags,runtime' '/var/folders/94/qrx48t4x1y9fksl28stzqmy80000gn/T/XcodeDistPipeline.~~~2K8Q1k/Root/Payload/Blending Board App.app'
+2022-12-02 15:12:03 +0000  /var/folders/94/qrx48t4x1y9fksl28stzqmy80000gn/T/XcodeDistPipeline.~~~2K8Q1k/Root/Payload/Blending Board App.app: replacing existing signature
+2022-12-02 15:12:03 +0000  /var/folders/94/qrx48t4x1y9fksl28stzqmy80000gn/T/XcodeDistPipeline.~~~2K8Q1k/Root/Payload/Blending Board App.app: signed app bundle with Mach-O thin (arm64) [com.csma.blendi]
+2022-12-02 15:12:03 +0000 [MT] /usr/bin/codesign exited with 0
+2022-12-02 15:12:03 +0000 [MT] Processing step: IDEDistributionZipODRItemStep
+2022-12-02 15:12:03 +0000 [MT] Skipping step: IDEDistributionZipODRItemStep because it said so
+2022-12-02 15:12:03 +0000 [MT] Processing step: IDEDistributionCreateIPAStep
+2022-12-02 15:12:03 +0000 [MT] Running /usr/bin/ditto '-V' '-c' '-k' '--norsrc' '/var/folders/94/qrx48t4x1y9fksl28stzqmy80000gn/T/XcodeDistPipeline.~~~2K8Q1k/Root' '/var/folders/94/qrx48t4x1y9fksl28stzqmy80000gn/T/XcodeDistPipeline.~~~2K8Q1k/Packages/Blending Board App.ipa'
+2022-12-02 15:12:03 +0000  >>> Copying /var/folders/94/qrx48t4x1y9fksl28stzqmy80000gn/T/XcodeDistPipeline.~~~2K8Q1k/Root 
+2022-12-02 15:12:03 +0000  copying file ./Payload/Blending Board App.app/_CodeSignature/CodeResources ... 
+2022-12-02 15:12:03 +0000  9462 bytes for ./Payload/Blending Board App.app/_CodeSignature/CodeResources
+2022-12-02 15:12:03 +0000  copying file ./Payload/Blending Board App.app/LaunchImage-1100-Portrait-2436h@3x.png ... 
+2022-12-02 15:12:03 +0000  96061 bytes for ./Payload/Blending Board App.app/LaunchImage-1100-Portrait-2436h@3x.png
+2022-12-02 15:12:03 +0000  copying file ./Payload/Blending Board App.app/en.lproj/InfoPlist.strings ... 
+42 bytes for ./Payload/Blending Board App.app/en.lproj/InfoPlist.strings
+2022-12-02 15:12:03 +0000  copying file ./Payload/Blending Board App.app/AppIcon60x60@2x.png ... 
+2022-12-02 15:12:03 +0000  14822 bytes for ./Payload/Blending Board App.app/AppIcon60x60@2x.png
+2022-12-02 15:12:03 +0000  copying file ./Payload/Blending Board App.app/LaunchImage-1100-Landscape-2436h@3x.png ... 
+2022-12-02 15:12:03 +0000  94324 bytes for ./Payload/Blending Board App.app/LaunchImage-1100-Landscape-2436h@3x.png
+2022-12-02 15:12:03 +0000  copying file ./Payload/Blending Board App.app/LaunchImage-800-667h@2x.png ... 
+2022-12-02 15:12:03 +0000  46691 bytes for ./Payload/Blending Board App.app/LaunchImage-800-667h@2x.png
+copying file ./Payload/Blending Board App.app/AppIcon40x40@3x.png ... 
+2022-12-02 15:12:03 +0000  14822 bytes for ./Payload/Blending Board App.app/AppIcon40x40@3x.png
+2022-12-02 15:12:03 +0000  copying file ./Payload/Blending Board App.app/AppIcon40x40@2x.png ... 
+2022-12-02 15:12:03 +0000  7511 bytes for ./Payload/Blending Board App.app/AppIcon40x40@2x.png
+2022-12-02 15:12:03 +0000  copying file ./Payload/Blending Board App.app/Blending Board App ... 
+2022-12-02 15:12:04 +0000  26993984 bytes for ./Payload/Blending Board App.app/Blending Board App
+copying file ./Payload/Blending Board App.app/AppIcon60x60@3x.png ... 
+2022-12-02 15:12:04 +0000  27664 bytes for ./Payload/Blending Board App.app/AppIcon60x60@3x.png
+copying file ./Payload/Blending Board App.app/LaunchImage-700-Portrait~ipad.png ... 
+2022-12-02 15:12:04 +0000  46612 bytes for ./Payload/Blending Board App.app/LaunchImage-700-Portrait~ipad.png
+copying file ./Payload/Blending Board App.app/Assets.car ... 
+2022-12-02 15:12:04 +0000  347432 bytes for ./Payload/Blending Board App.app/Assets.car
+copying file ./Payload/Blending Board App.app/AppIcon40x40@2x~ipad.png ... 
+2022-12-02 15:12:04 +0000  7511 bytes for ./Payload/Blending Board App.app/AppIcon40x40@2x~ipad.png
+copying file ./Payload/Blending Board App.app/AppIcon76x76@2x~ipad.png ... 
+2022-12-02 15:12:04 +0000  21488 bytes for ./Payload/Blending Board App.app/AppIcon76x76@2x~ipad.png
+copying file ./Payload/Blending Board App.app/LaunchImage-800-Portrait-736h@3x.png ... 
+2022-12-02 15:12:04 +0000  112223 bytes for ./Payload/Blending Board App.app/LaunchImage-800-Portrait-736h@3x.png
+copying file ./Payload/Blending Board App.app/LaunchImage-700@2x.png ... 
+2022-12-02 15:12:04 +0000  33725 bytes for ./Payload/Blending Board App.app/LaunchImage-700@2x.png
+2022-12-02 15:12:04 +0000  copying file ./Payload/Blending Board App.app/AppIcon83.5x83.5@2x~ipad.png ... 
+2022-12-02 15:12:04 +0000  24845 bytes for ./Payload/Blending Board App.app/AppIcon83.5x83.5@2x~ipad.png
+copying file ./Payload/Blending Board App.app/LaunchImage-700-568h@2x.png ... 
+2022-12-02 15:12:04 +0000  34627 bytes for ./Payload/Blending Board App.app/LaunchImage-700-568h@2x.png
+copying file ./Payload/Blending Board App.app/Blending Board App.pck ... 
+2022-12-02 15:12:04 +0000  131024 bytes for ./Payload/Blending Board App.app/Blending Board App.pck
+2022-12-02 15:12:04 +0000  copying file ./Payload/Blending Board App.app/LaunchImage-700-Landscape@2x~ipad.png ... 
+2022-12-02 15:12:04 +0000  156218 bytes for ./Payload/Blending Board App.app/LaunchImage-700-Landscape@2x~ipad.png
+copying file ./Payload/Blending Board App.app/AppIcon40x40~ipad.png ... 
+2022-12-02 15:12:04 +0000  2452 bytes for ./Payload/Blending Board App.app/AppIcon40x40~ipad.png
+2022-12-02 15:12:04 +0000  copying file ./Payload/Blending Board App.app/embedded.mobileprovision ... 
+2022-12-02 15:12:04 +0000  12294 bytes for ./Payload/Blending Board App.app/embedded.mobileprovision
+2022-12-02 15:12:04 +0000  copying file ./Payload/Blending Board App.app/LaunchImage-800-Landscape-736h@3x.png ... 
+2022-12-02 15:12:04 +0000  109828 bytes for ./Payload/Blending Board App.app/LaunchImage-800-Landscape-736h@3x.png
+copying file ./Payload/Blending Board App.app/LaunchImage-700-Portrait@2x~ipad.png ... 
+2022-12-02 15:12:04 +0000  159701 bytes for ./Payload/Blending Board App.app/LaunchImage-700-Portrait@2x~ipad.png
+copying file ./Payload/Blending Board App.app/LaunchImage-700-Landscape~ipad.png ... 
+2022-12-02 15:12:04 +0000  44896 bytes for ./Payload/Blending Board App.app/LaunchImage-700-Landscape~ipad.png
+copying file ./Payload/Blending Board App.app/Info.plist ... 
+2022-12-02 15:12:04 +0000  2065 bytes for ./Payload/Blending Board App.app/Info.plist
+2022-12-02 15:12:04 +0000  copying file ./Payload/Blending Board App.app/PkgInfo ... 
+8 bytes for ./Payload/Blending Board App.app/PkgInfo
+copying file ./Payload/Blending Board App.app/AppIcon76x76~ipad.png ... 
+2022-12-02 15:12:04 +0000  7103 bytes for ./Payload/Blending Board App.app/AppIcon76x76~ipad.png
+2022-12-02 15:12:04 +0000 [MT] /usr/bin/ditto exited with 0
+2022-12-02 15:12:04 +0000 [MT] Processing step: IDEDistributionAppStoreInformationStep
+2022-12-02 15:12:04 +0000 [MT] Skipping step: IDEDistributionAppStoreInformationStep because it said so
+2022-12-02 15:12:04 +0000 [MT] Processing step: IDEDistributionGenerateProcessedDistributionItems
+2022-12-02 15:12:04 +0000 [MT] IDEDistributionItem init <DVTFilePath:0x6000002174f0:'/var/folders/94/qrx48t4x1y9fksl28stzqmy80000gn/T/XcodeDistPipeline.~~~2K8Q1k/Root/Payload/Blending Board App.app'>
+2022-12-02 15:12:04 +0000 [MT] Processing step: IDEDistributionCreateManifestStep

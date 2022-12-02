@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Blending Board App.ipa</key>
+	<array>
+		<dict>
+			<key>architectures</key>
+			<array>
+				<string>arm64</string>
+			</array>
+			<key>buildNumber</key>
+			<string>1.0</string>
+			<key>certificate</key>
+			<dict>
+				<key>SHA1</key>
+				<string>D8DBAF0C2EF5C930CDE208B43706C1BD9AA4B8F1</string>
+				<key>dateExpires</key>
+				<string>12/1/23</string>
+				<key>type</key>
+				<string>Apple Development</string>
+			</dict>
+			<key>entitlements</key>
+			<dict>
+				<key>application-identifier</key>
+				<string>D5S846FCRY.com.csma.blendi</string>
+				<key>com.apple.developer.team-identifier</key>
+				<string>D5S846FCRY</string>
+				<key>get-task-allow</key>
+				<true/>
+			</dict>
+			<key>name</key>
+			<string>Blending Board App.app</string>
+			<key>profile</key>
+			<dict>
+				<key>UUID</key>
+				<string>72d4e8f4-d4b1-49cf-a34c-2e1573857ef4</string>
+				<key>dateExpires</key>
+				<string>12/8/22</string>
+				<key>name</key>
+				<string>iOS Team Provisioning Profile: com.csma.blendi</string>
+			</dict>
+			<key>team</key>
+			<dict>
+				<key>id</key>
+				<string>D5S846FCRY</string>
+				<key>name</key>
+				<string></string>
+			</dict>
+			<key>versionNumber</key>
+			<string>1.0</string>
+		</dict>
+	</array>
+</dict>
+</plist>
