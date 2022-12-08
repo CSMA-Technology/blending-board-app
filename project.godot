@@ -11,8 +11,8 @@ config_version=4
 [application]
 
 config/name="Blending Board App"
-run/main_scene="res://Hello World.tscn"
-config/icon="res://icon.png"
+run/main_scene="res://Home.tscn"
+config/icon="res://assets/icons/icon.png"
 
 [display]
 

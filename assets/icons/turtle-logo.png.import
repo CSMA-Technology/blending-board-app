@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/turtle.png-1e7163e00953c5c0e224719995a3f97d.stex"
+path="res://.import/turtle-logo.png-266c12605f8818e4af8a329dbf38bc2b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://turtle.png"
-dest_files=[ "res://.import/turtle.png-1e7163e00953c5c0e224719995a3f97d.stex" ]
+source_file="res://assets/icons/turtle-logo.png"
+dest_files=[ "res://.import/turtle-logo.png-266c12605f8818e4af8a329dbf38bc2b.stex" ]
 
 [params]
 
