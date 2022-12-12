@@ -1,7 +1,18 @@
-extends Control
+extends Node2D
 
-var deckName: String
-var cards
+class_name Card
+
+enum MergeStatus {
+	MERGED,
+	SELECTED,
+	PENDING
+}
+
+var value: String
+var column: int
+var row: int
+var color: String
+var mergeStatus = MergeStatus.MERGED
 
 
 # Called when the node enters the scene tree for the first time.
@@ -12,7 +23,3 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
-
-
-func _on_Button_pressed():
-	get_tree().change_scene("res://DeckEdit.tscn")
