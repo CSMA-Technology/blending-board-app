@@ -1,11 +1,12 @@
-extends Control
+extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
-func _input(event):
-	if (event is InputEventMouseButton and event.pressed) or (event is InputEventScreenTouch and event.pressed):
-		var ui_area = $Deck.get_rect()
-		if (ui_area.has_point(event.position)):
-			get_tree().change_scene("res://PlayDeck.tscn")
+func _on_PlayDeckButton_pressed():
+	get_tree().change_scene("res://PlayDeck.tscn")
+
+
+func _on_NewDeckButton_pressed():
+	get_tree().change_scene("res://DeckEdit.tscn")

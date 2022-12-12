@@ -13,9 +13,21 @@ _global_script_classes=[ {
 "class": "Card",
 "language": "GDScript",
 "path": "res://Card.gd"
+}, {
+"base": "Object",
+"class": "CardData",
+"language": "GDScript",
+"path": "res://CardData.gd"
+}, {
+"base": "Object",
+"class": "DeckData",
+"language": "GDScript",
+"path": "res://DeckData.gd"
 } ]
 _global_script_class_icons={
-"Card": ""
+"Card": "",
+"CardData": "",
+"DeckData": ""
 }
 
 [application]
