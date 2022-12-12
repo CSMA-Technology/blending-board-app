@@ -1,7 +1,7 @@
 extends Control
 
 var deckName: String
-var cards
+var cards # An array of Cards
 
 
 # Called when the node enters the scene tree for the first time.
