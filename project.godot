@@ -12,28 +12,34 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "Card",
 "language": "GDScript",
-"path": "res://Card.gd"
+"path": "res://Scripts/Card.gd"
 }, {
 "base": "Object",
 "class": "CardData",
 "language": "GDScript",
-"path": "res://CardData.gd"
+"path": "res://Scripts/CardData.gd"
+}, {
+"base": "ColorRect",
+"class": "CardEdit",
+"language": "GDScript",
+"path": "res://Scripts/CardEdit.gd"
 }, {
 "base": "Object",
 "class": "DeckData",
 "language": "GDScript",
-"path": "res://DeckData.gd"
+"path": "res://Scripts/DeckData.gd"
 } ]
 _global_script_class_icons={
 "Card": "",
 "CardData": "",
+"CardEdit": "",
 "DeckData": ""
 }
 
 [application]
 
 config/name="Blending Board App"
-run/main_scene="res://Home.tscn"
+run/main_scene="res://Scenes/Home.tscn"
 config/icon="res://assets/icons/icon.png"
 
 [display]
