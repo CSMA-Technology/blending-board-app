@@ -23,11 +23,5 @@ func _ready():
 		newCard.data = card
 		$UI/Columns.get_child(card.column).add_card(newCard)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-
 func _on_Button_pressed():
-	get_tree().change_scene("res://Home.tscn")
+	get_tree().change_scene("res://Scenes/Home.tscn")

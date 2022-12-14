@@ -9,7 +9,7 @@ func set_cards(cards):
 	for card in cards:
 		add_card(card)
 
-func add_card(card:CardEdit):
+func add_card(card): # TODO use a base card here instead
 	if get_children().size() <= card.data.row:
 			add_child(Row.instance())
 	get_children()[card.data.row].add_child(card)
