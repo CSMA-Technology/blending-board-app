@@ -4,7 +4,7 @@
 
 [node name="Column" type="GridContainer"]
 margin_right = 200.0
-margin_bottom = 104.0
-size_flags_horizontal = 2
+margin_bottom = 56.0
+size_flags_horizontal = 4
 size_flags_vertical = 2
 script = ExtResource( 1 )

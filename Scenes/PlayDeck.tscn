@@ -34,7 +34,7 @@ text = "Deck Name"
 align = 1
 valign = 1
 
-[node name="BigCards" type="HFlowContainer" parent="UI"]
+[node name="BigCards" type="HBoxContainer" parent="UI"]
 anchor_top = 0.213
 anchor_right = 1.0
 anchor_bottom = 0.427
@@ -42,14 +42,19 @@ margin_left = 64.0
 margin_top = 0.199989
 margin_right = -64.0
 margin_bottom = -0.200012
+size_flags_horizontal = 4
+custom_constants/separation = 100
+alignment = 1
 
-[node name="CardDrawer" type="HFlowContainer" parent="UI"]
+[node name="CardDrawer" type="HBoxContainer" parent="UI"]
 anchor_top = 0.533
 anchor_right = 1.0
 anchor_bottom = 0.96
 margin_left = 64.0
 margin_top = 0.199982
 margin_right = -64.0
+custom_constants/separation = 100
+alignment = 1
 
 [connection signal="pressed" from="UI/Home" to="." method="_on_Home_pressed"]
 [connection signal="pressed" from="UI/Home" to="." method="_on_Button_pressed"]
