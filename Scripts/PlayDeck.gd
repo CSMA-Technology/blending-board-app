@@ -18,6 +18,10 @@ func _ready():
 		CardData.new("a", 1, 0, ""),
 		CardData.new("o", 1, 0, ""),
 		CardData.new("e", 1, 0, ""),
+		CardData.new("u", 1, 0, ""),
+		CardData.new("t", 1, 1, ""),
+		CardData.new("d", 1, 1, ""),
+		CardData.new("p", 1, 1, ""),
 		CardData.new("t", 2, 0, ""),
 		CardData.new("d", 2, 1, ""),
 		CardData.new("p", 2, 2, "")
@@ -28,10 +32,7 @@ func _ready():
 	# TODO: change this to use deck data helper function to get the number of columns
 	var columnCount = 3
 	for n in columnCount: 
-		var newColumn = Column.instance()
-		$UI/BigCards.add_child(newColumn)
-		newColumn.anchor_top = 1.0
-		$UI/BigCards.get_child(n).add_child(BigCard.instance())
+		$UI/BigCards.add_child(BigCard.instance())
 	
 	for card in deck.cards: 
 		if card.column + 1 > $UI/CardDrawer.get_child_count():
@@ -43,7 +44,7 @@ func _ready():
 
 func _on_Card_clicked(cardData):
 	var column = cardData.column
-	$UI/BigCards.get_child(column).get_node("BigCard/Value").text = cardData.value
+	$UI/BigCards.get_child(column).get_node("Value").text = cardData.value
 
 func _on_Home_pressed():
 	get_tree().change_scene("res://Scenes/Home.tscn")
