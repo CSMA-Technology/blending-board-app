@@ -24,6 +24,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scripts/CardEdit.gd"
 }, {
+"base": "GridContainer",
+"class": "Column",
+"language": "GDScript",
+"path": "res://Scripts/Column.gd"
+}, {
 "base": "Control",
 "class": "Deck",
 "language": "GDScript",
@@ -33,13 +38,20 @@ _global_script_classes=[ {
 "class": "DeckData",
 "language": "GDScript",
 "path": "res://Scripts/DeckData.gd"
+}, {
+"base": "HFlowContainer",
+"class": "Row",
+"language": "GDScript",
+"path": "res://Scripts/Row.gd"
 } ]
 _global_script_class_icons={
 "Card": "",
 "CardData": "",
 "CardEdit": "",
+"Column": "",
 "Deck": "",
-"DeckData": ""
+"DeckData": "",
+"Row": ""
 }
 
 [application]

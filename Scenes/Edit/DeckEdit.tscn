@@ -15,26 +15,64 @@ margin_right = 1024.0
 margin_bottom = 600.0
 color = Color( 0.282353, 0.298039, 0.337255, 1 )
 
-[node name="Button" type="Button" parent="UI"]
-margin_left = 72.0
-margin_top = 32.0
-margin_right = 123.0
-margin_bottom = 52.0
-text = "Home"
+[node name="SaveButton" type="Button" parent="UI"]
+anchor_left = 0.9
+anchor_top = 0.05
+anchor_right = 0.9
+anchor_bottom = 0.05
+margin_right = 12.0
+margin_bottom = 20.0
+text = "Save"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="CancelButton" type="Button" parent="UI"]
+anchor_left = 0.9
+anchor_top = 0.05
+anchor_right = 0.9
+anchor_bottom = 0.05
+margin_left = -75.0
+margin_right = -46.0
+margin_bottom = 20.0
+text = "Cancel"
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
 [node name="Label" type="Label" parent="UI"]
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -128.0
-margin_top = 32.0
+margin_top = 15.0
 margin_right = 122.0
-margin_bottom = 111.0
+margin_bottom = 90.0
 custom_fonts/font = ExtResource( 2 )
 text = "Edit Deck"
 
+[node name="DeckNameEdit" type="LineEdit" parent="UI"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -100.0
+margin_top = 90.0
+margin_right = 100.0
+margin_bottom = 140.0
+clear_button_enabled = true
+placeholder_text = "Deck Name"
+
 [node name="Columns" type="HFlowContainer" parent="UI"]
+anchor_left = 0.1
 anchor_top = 0.3
-anchor_right = 1.0
+anchor_right = 0.9
 anchor_bottom = 1.0
 
-[connection signal="pressed" from="UI/Button" to="." method="_on_Button_pressed"]
+[node name="AddColumnButton" type="Button" parent="UI/Columns"]
+margin_right = 200.0
+margin_bottom = 400.0
+rect_min_size = Vector2( 200, 400 )
+size_flags_vertical = 0
+text = "+"
+
+[connection signal="pressed" from="UI/SaveButton" to="." method="_on_SaveButton_pressed"]
+[connection signal="pressed" from="UI/CancelButton" to="." method="_on_CancelButton_pressed"]
+[connection signal="pressed" from="UI/Columns/AddColumnButton" to="." method="_on_AddColumnButton_pressed"]

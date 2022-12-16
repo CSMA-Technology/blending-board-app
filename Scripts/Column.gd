@@ -1,8 +1,20 @@
 extends GridContainer
 
+class_name Column
+
 var cards:Array #Array of Cards
 
 const Row = preload("res://Scenes/LayoutHelpers/Row.tscn")
+const CardEdit = preload("res://Scenes/Edit/CardEdit.tscn")
+
+signal add_card_requested
+signal card_removed
+signal row_removed
+
+onready var is_empty := get_child_count() == 1
+
+func init():
+	add_row()
 
 func set_cards(cards):
 	self.cards = cards
@@ -10,14 +22,36 @@ func set_cards(cards):
 		add_card(card)
 
 func add_card(card): # TODO use a base card here instead
-	if get_children().size() <= card.data.row:
-			add_child(Row.instance())
-	get_children()[card.data.row].add_child(card)
+	while get_children().size() - 1 <= card.data.row:
+		add_row()
+	get_child(card.data.row).add_card(card)
 
-func remove_card(card:CardEdit):
-	var row = get_children()[card.data.row] as Control
-	row.remove_child(card)
-	card.queue_free()
-	if row.get_children().size() == 0:
-		remove_child(row)
-		row.queue_free()
+func on_row_card_removed(cardData:CardData, row:Row):
+	emit_signal("card_removed", cardData)
+	if row.is_empty:
+		remove_row(row)
+
+func add_card_to_row(row:Row):
+	emit_signal("add_card_requested", row.get_index())
+
+func add_row():
+#	Enable this to hide the plus button for all but the last row
+#	var last_row = get_child(get_child_count() - 2)
+#	if last_row:
+#		last_row.show_add_card_button = false
+	var new_row = Row.instance()
+	add_child(new_row)
+	move_child($AddRowButton, get_children().size() - 1)
+	new_row.connect("add_button_pressed", self, "add_card_to_row", [new_row])
+	new_row.connect("card_removed", self, "on_row_card_removed", [new_row])
+	new_row.show_add_card_button = true
+	is_empty = false
+
+func remove_row(row: Row):
+	var row_index = row.get_index()
+	remove_child(row)
+	is_empty = get_child_count() == 1
+	emit_signal("row_removed", row_index)
+
+func _on_AddRowButton_pressed():
+	add_row()
