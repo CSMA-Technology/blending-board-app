@@ -11,10 +11,17 @@ signal add_card_requested
 signal card_removed
 signal row_removed
 
+var read_only = false
+
 onready var is_empty := get_child_count() == 1
 
 func init():
+	self.read_only = read_only
 	add_row()
+
+func _ready():
+	if read_only:
+		$AddRowButton.hide()
 
 func set_cards(cards):
 	self.cards = cards
@@ -40,11 +47,11 @@ func add_row():
 #	if last_row:
 #		last_row.show_add_card_button = false
 	var new_row = Row.instance()
+	new_row.read_only = read_only
 	add_child(new_row)
 	move_child($AddRowButton, get_children().size() - 1)
 	new_row.connect("add_button_pressed", self, "add_card_to_row", [new_row])
 	new_row.connect("card_removed", self, "on_row_card_removed", [new_row])
-	new_row.show_add_card_button = true
 	is_empty = false
 
 func remove_row(row: Row):

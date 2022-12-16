@@ -25,7 +25,6 @@ static func save_deck(deckData: DeckData):
 	var data = {
 		name = deckData.name,
 		refId = deckData.referenceId, 
-		numColumns = deckData.numColumns,
 		cards = []
 	}
 	for card in deckData.cards:
@@ -49,7 +48,7 @@ static func load_deck(fileName: String):
 	var cardObjects = []
 	for card in deckDataJson.cards:
 		cardObjects.append(CardData.new(card.value, card.column, card.row, card.color, card.mergeStatus))
-	var deckData = DeckData.new(deckDataJson.name, cardObjects, deckDataJson.numColumns, deckDataJson.refId)
+	var deckData = DeckData.new(deckDataJson.name, cardObjects, deckDataJson.refId)
 	return deckData
 
 static func open_deck_file(fileName: String):

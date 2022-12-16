@@ -55,7 +55,6 @@ func _on_AddColumnButton_pressed():
 
 func save_deck():
 	deck.name = $UI/DeckNameEdit.text
-	deck.numColumns = $UI/Columns.get_child_count() - 1
 	UserDataUtils.save_deck(deck)
 
 func _on_SaveButton_pressed():

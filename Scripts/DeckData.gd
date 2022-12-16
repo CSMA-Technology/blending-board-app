@@ -4,13 +4,11 @@ class_name DeckData
 
 var name: String setget set_name, get_name
 var cards: Array # Array of CardData
-var numColumns: int = 0 setget set_num_columns, get_num_columns
 var referenceId: int setget , get_ref_id
 
-func _init(name: String, cards: Array, numColumns: int, referenceId: int = -1):
+func _init(name: String, cards: Array, referenceId: int = -1):
 	self.name = name
 	self.cards = cards
-	self.numColumns = numColumns
 	if referenceId == -1:
 		generate_ref_id()
 	else: 
@@ -28,12 +26,6 @@ func generate_ref_id():
 
 func get_ref_id():
 	return referenceId
-
-func set_num_columns(columns: int):
-	numColumns = columns
-
-func get_num_columns():
-	return numColumns
 
 func set_name(deckName: String):
 	name = deckName
