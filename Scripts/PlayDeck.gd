@@ -19,7 +19,9 @@ func _ready():
 	for card in deck.cards: 
 		if card.column + 1 > $UI/CardDrawer.get_child_count():
 			columnCount += 1
-			$UI/CardDrawer.add_child(Column.instance())
+			var new_column = Column.instance()
+			new_column.read_only = true
+			$UI/CardDrawer.add_child(new_column)
 		var newCard = Card.instance()
 		newCard.data = card
 		$UI/CardDrawer.get_child(card.column).add_card(newCard)
