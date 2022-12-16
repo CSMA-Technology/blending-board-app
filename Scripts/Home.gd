@@ -1,9 +1,10 @@
 extends Node2D
 
-var deck: DeckData
 const Deck = preload("res://Scenes/Deck.tscn")
 
 func _ready():
+	randomize()
+	
 	UserDataUtils.initialize_app_data()
 	
 	var deckFiles = UserDataUtils.get_all_deck_files()
