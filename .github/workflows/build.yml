@@ -1,8 +1,8 @@
 name: Build Godot Project
 
 on:
-  push: {}
-  pull_request: {}
+  release:
+    types: [published]
 
 jobs:
   Godot:
@@ -26,3 +26,15 @@ jobs:
         with:
           name: Client - ${{ matrix.platform }}
           path: ${{ github.workspace }}/${{ steps.build.outputs.build }}
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      -
+        name: Deploy to GitHub Pages
+        if: success()
+        uses: crazy-max/ghaction-github-pages@v3
+        with:
+          target_branch: gh-pages
+          build_dir: "${{ steps.Godot.outputs.build }}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
