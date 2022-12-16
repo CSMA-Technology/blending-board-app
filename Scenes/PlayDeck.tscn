@@ -41,9 +41,8 @@ anchor_bottom = 0.427
 margin_left = 64.0
 margin_top = 0.199989
 margin_right = -64.0
-margin_bottom = -0.200012
+margin_bottom = 31.8
 size_flags_horizontal = 4
-custom_constants/separation = 100
 alignment = 1
 
 [node name="CardDrawer" type="HBoxContainer" parent="UI"]
@@ -53,7 +52,7 @@ anchor_bottom = 0.96
 margin_left = 64.0
 margin_top = 0.199982
 margin_right = -64.0
-custom_constants/separation = 100
+custom_constants/separation = 50
 alignment = 1
 
 [connection signal="pressed" from="UI/Home" to="." method="_on_Home_pressed"]
