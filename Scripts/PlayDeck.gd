@@ -3,26 +3,30 @@ extends Node2D
 var deck:DeckData
 var bigTiles: Array
 var activeDeckId: int
+var columnCount: int
 const Card = preload("res://Scenes/Card.tscn")
 const Column = preload("res://Scenes/LayoutHelpers/Column.tscn")
 const BigCard = preload("res://Scenes/BigCard.tscn")
 
 func _ready():
+	columnCount = 0
+	
 	activeDeckId = UserDataUtils.get_active_deck_id()
 	deck = UserDataUtils.load_deck_by_id(activeDeckId)
 	
 	$UI/DeckName.text = deck.name
 	
-	for n in deck.get_num_columns(): 
-		$UI/BigCards.add_child(BigCard.instance())
-	
 	for card in deck.cards: 
 		if card.column + 1 > $UI/CardDrawer.get_child_count():
+			columnCount += 1
 			$UI/CardDrawer.add_child(Column.instance())
 		var newCard = Card.instance()
 		newCard.data = card
 		$UI/CardDrawer.get_child(card.column).add_card(newCard)
 		newCard.connect("card_clicked", self, "_on_Card_clicked")
+	
+	for n in columnCount: 
+		$UI/BigCards.add_child(BigCard.instance())
 
 func _on_Card_clicked(cardData):
 	var column = cardData.column
