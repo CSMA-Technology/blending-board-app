@@ -1,37 +1,19 @@
 extends Node2D
 
 var deck:DeckData
+var userDataUtils: UserDataUtils
 var bigTiles: Array
 const Card = preload("res://Scenes/Card.tscn")
 const Column = preload("res://Scenes/LayoutHelpers/Column.tscn")
 const BigCard = preload("res://Scenes/BigCard.tscn")
 
 func _ready():
-	# TODO: Remove - hardcoded letters
-	deck = DeckData.new()
-	deck.name = "Deck 1"
-	deck.cards = [
-		CardData.new("c", 0, 0, ""),
-		CardData.new("p", 0, 0, ""),
-		CardData.new("b", 0, 1, ""),
-		CardData.new("r", 0, 1, ""),
-		CardData.new("a", 1, 0, ""),
-		CardData.new("o", 1, 0, ""),
-		CardData.new("e", 1, 0, ""),
-		CardData.new("u", 1, 0, ""),
-		CardData.new("t", 1, 1, ""),
-		CardData.new("d", 1, 1, ""),
-		CardData.new("p", 1, 1, ""),
-		CardData.new("t", 2, 0, ""),
-		CardData.new("d", 2, 1, ""),
-		CardData.new("p", 2, 2, "")
-	]
+	userDataUtils = UserDataUtils.new()
+	deck = userDataUtils.loadDeckById(1234)
 	
 	$UI/DeckName.text = deck.name
 	
-	# TODO: change this to use deck data helper function to get the number of columns
-	var columnCount = 3
-	for n in columnCount: 
+	for n in deck.get_num_columns: 
 		$UI/BigCards.add_child(BigCard.instance())
 	
 	for card in deck.cards: 

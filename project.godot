@@ -28,12 +28,18 @@ _global_script_classes=[ {
 "class": "DeckData",
 "language": "GDScript",
 "path": "res://Scripts/DeckData.gd"
+}, {
+"base": "Object",
+"class": "UserDataUtils",
+"language": "GDScript",
+"path": "res://Scripts/UserDataUtils.gd"
 } ]
 _global_script_class_icons={
 "Card": "",
 "CardData": "",
 "CardEdit": "",
-"DeckData": ""
+"DeckData": "",
+"UserDataUtils": ""
 }
 
 [application]
