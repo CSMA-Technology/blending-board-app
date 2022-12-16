@@ -12,17 +12,17 @@ func _init(name: String, cards: Array, numColumns: int, referenceId: int = -1):
 	self.cards = cards
 	self.numColumns = numColumns
 	if referenceId == -1:
-		generateRefId()
+		generate_ref_id()
 	else: 
 		self.referenceId = referenceId
 
-func generateRefId():
+func generate_ref_id():
 	if referenceId != null:
 		var newRefId = randi()
 		var file = File.new()
 		if file.file_exists("user://" + str(referenceId) + ".dat"):
 			print("file already exists with this id, creating a new one")
-			generateRefId()
+			generate_ref_id()
 		file.close()
 		referenceId = newRefId
 

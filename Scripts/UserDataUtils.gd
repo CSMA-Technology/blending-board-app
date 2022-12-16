@@ -1,9 +1,24 @@
-extends Object
+extends Node2D
 
-class_name UserDataUtils
+# TODO: use this active deck id to push the most recently opened deck to the front on the home page
+var activeDeckId: int setget set_active_deck_id, get_active_deck_id
 
-func saveDeck(deckData: DeckData):
-	var filePath = "user://" + str(deckData.referenceId) + ".dat"
+func set_active_deck_id(deckId):
+	activeDeckId = deckId
+
+func get_active_deck_id():
+	return activeDeckId
+
+# TODO: add a standard deck that is initialized with the app
+static func initialize_app_data():
+	var dir = Directory.new()
+	var absoluteUserPath = ProjectSettings.globalize_path("user://")
+	dir.open(absoluteUserPath)
+	if not dir.dir_exists("data"):
+		dir.make_dir("data")
+
+static func save_deck(deckData: DeckData):
+	var filePath = "user://data/" + str(deckData.referenceId) + ".dat"
 	var file = File.new()
 	if file.open(filePath, File.WRITE) != 0:
 		print("Error opening this file: ", ProjectSettings.globalize_path(filePath))
@@ -26,35 +41,44 @@ func saveDeck(deckData: DeckData):
 	file.close()
 	return dataJson
 
-func loadDeckById(refId: int):
-	return loadDeck(str(refId) + ".dat")
+static func load_deck_by_id(refId: int):
+	return load_deck(str(refId) + ".dat")
 
-func loadDeck(fileName: String):
-	var file = File.new()
-	var fullFilePath = "user://" + fileName
-	if not file.file_exists(fullFilePath):
-		print("No deck exists with this name")
-		return
-	if file.open(fullFilePath, File.READ) != 0:
-		print("Error opening this file: ", ProjectSettings.globalize_path(fullFilePath))
-		return
-	var deckDataJson = {}
-	deckDataJson = JSON.parse(file.get_as_text()).result
+static func load_deck(fileName: String):
+	var deckDataJson = open_deck_file(fileName)
 	var cardObjects = []
 	for card in deckDataJson.cards:
 		cardObjects.append(CardData.new(card.value, card.column, card.row, card.color, card.mergeStatus))
 	var deckData = DeckData.new(deckDataJson.name, cardObjects, deckDataJson.numColumns, deckDataJson.refId)
 	return deckData
 
-func getAllDeckFiles():
+static func open_deck_file(fileName: String):
+	var file = File.new()
+	var fullFilePath = "user://data/" + fileName
+	if not file.file_exists(fullFilePath):
+		print("No deck exists with this name")
+		return
+	if file.open(fullFilePath, File.READ) != 0:
+		print("Error opening this file: ", ProjectSettings.globalize_path(fullFilePath))
+		return
+	var deckDataJson = JSON.parse(file.get_as_text()).result
+	return deckDataJson
+
+static func get_deck_metadata(fileName: String):
+	var deckDataJson = open_deck_file(fileName)
+	var metaData = {
+		name = deckDataJson.name,
+		refId = deckDataJson.refId
+	}
+	return metaData
+
+static func get_all_deck_files():
 	var files = []
 	var dir = Directory.new()
 	var absoluteUserPath = ProjectSettings.globalize_path("user://")
-	print(absoluteUserPath)
-	if dir.open(absoluteUserPath) == OK:
+	if dir.open(absoluteUserPath + "data") == OK:
 		dir.list_dir_begin(true, true)
 		var file_name = dir.get_next()
-		print(file_name)
 		while file_name != "":
 			if dir.current_is_dir():
 				print_debug("Skipping folders in user data")
