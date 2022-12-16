@@ -3,6 +3,7 @@ name: Build Godot Project
 on:
   release:
     types: [published]
+  workflow_dispatch: {}
 
 jobs:
   Godot:
