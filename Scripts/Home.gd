@@ -1,12 +1,20 @@
 extends Node2D
 
-# Called when the node enters the scene tree for the first time.
+const Deck = preload("res://Scenes/Deck.tscn")
+
 func _ready():
-	pass # Replace with function body.
-
-func _on_PlayDeckButton_pressed():
-	get_tree().change_scene("res://Scenes/PlayDeck.tscn")
-
+	randomize()
+	
+	UserDataUtils.initialize_app_data()
+	
+	var deckFiles = UserDataUtils.get_all_deck_files()
+	if not deckFiles.empty():
+		for deckFile in deckFiles:
+			var deckMetadata = UserDataUtils.get_deck_metadata(deckFile)
+			var deck = Deck.instance()
+			deck.deckName = deckMetadata.name
+			deck.deckId = deckMetadata.refId
+			$UI/Decks.add_child(deck)
 
 func _on_NewDeckButton_pressed():
 	get_tree().change_scene("res://Scenes/Edit/DeckEdit.tscn")

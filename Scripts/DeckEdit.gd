@@ -5,9 +5,7 @@ const CardEdit = preload("res://Scenes/Edit/CardEdit.tscn")
 const Column = preload("res://Scenes/LayoutHelpers/Column.tscn")
 
 func _ready():
-	deck = DeckData.new();
-	deck.name = "Test Deck"
-	deck.cards = [
+	var cards = [
 		CardData.new("a", 0, 0, ""),
 		CardData.new("b", 0, 0, ""),
 		CardData.new("c", 0, 1, ""),
@@ -15,6 +13,8 @@ func _ready():
 		CardData.new("e", 1, 0, ""),
 		CardData.new("f", 1, 0, ""),
 	]
+	
+	deck = DeckData.new("Test Deck", cards, 2)
 	
 	for card in deck.cards:
 		if card.column + 1 > $UI/Columns.get_child_count():

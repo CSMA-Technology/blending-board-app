@@ -57,4 +57,3 @@ custom_constants/separation = 100
 alignment = 1
 
 [connection signal="pressed" from="UI/Home" to="." method="_on_Home_pressed"]
-[connection signal="pressed" from="UI/Home" to="." method="_on_Button_pressed"]
