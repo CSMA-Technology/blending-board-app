@@ -7,7 +7,7 @@ const Column = preload("res://Scenes/LayoutHelpers/Column.tscn")
 func _ready():
 	var cards = []
 	
-	deck = DeckData.new("", cards, 0)
+	deck = DeckData.new("", cards)
 	$UI/DeckNameEdit.text = deck.name
 	for card in deck.cards:
 		while card.column >= $UI/Columns.get_child_count() - 1:
