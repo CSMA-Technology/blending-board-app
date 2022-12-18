@@ -30,4 +30,11 @@ align = 1
 valign = 1
 autowrap = true
 
+[node name="Edit" type="Button" parent="."]
+margin_left = 73.0
+margin_right = 128.0
+margin_bottom = 20.0
+text = "Edit"
+
 [connection signal="gui_input" from="TopCard" to="." method="_on_TopCard_gui_input"]
+[connection signal="pressed" from="Edit" to="." method="_on_Edit_pressed"]

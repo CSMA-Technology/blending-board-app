@@ -87,3 +87,10 @@ static func get_all_deck_files():
 	else: 
 		print("An error occurred when trying to access the user data")
 	return files
+
+static func delete_deck(refId: int):
+	var dir = Directory.new()
+	var filePath = "user://data/" + str(refId) + ".dat"
+	if dir.remove(filePath) != OK:
+		print("An error occurred while trying to delete this file: " + ProjectSettings.globalize_path(filePath))
+		
