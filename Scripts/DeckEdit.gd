@@ -5,10 +5,17 @@ const CardEdit = preload("res://Scenes/Edit/CardEdit.tscn")
 const Column = preload("res://Scenes/LayoutHelpers/Column.tscn")
 
 func _ready():
+	var activeDeckId = UserDataUtils.get_active_deck_id()
 	var cards = []
+	if activeDeckId == -1:
+		deck = DeckData.new("", cards)
+	else:
+		deck = UserDataUtils.load_deck_by_id(activeDeckId)
+		cards = deck.cards
+		$UI/Buttons/DeleteButton.visible = true
 	
-	deck = DeckData.new("", cards)
 	$UI/DeckNameEdit.text = deck.name
+	
 	for card in deck.cards:
 		while card.column >= $UI/Columns.get_child_count() - 1:
 			add_column()
@@ -62,4 +69,11 @@ func _on_SaveButton_pressed():
 	get_tree().change_scene("res://Scenes/Home.tscn")
 
 func _on_CancelButton_pressed():
+	get_tree().change_scene("res://Scenes/Home.tscn")
+
+func _on_DeleteButton_pressed():
+	$UI/DeleteDialogue.popup()
+
+func _on_DeleteDialogue_confirmed():
+	UserDataUtils.delete_deck(deck.referenceId)
 	get_tree().change_scene("res://Scenes/Home.tscn")

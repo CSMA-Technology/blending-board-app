@@ -17,4 +17,5 @@ func _ready():
 			$UI/Decks.add_child(deck)
 
 func _on_NewDeckButton_pressed():
+	UserDataUtils.set_active_deck_id(-1)
 	get_tree().change_scene("res://Scenes/Edit/DeckEdit.tscn")
