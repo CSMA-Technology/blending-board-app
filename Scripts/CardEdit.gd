@@ -6,6 +6,7 @@ const CardScene = preload("res://Scenes/Card.tscn")
 
 var data:CardData
 var dragging := false
+var move_data = {}
 signal card_emptied
 
 func _ready():
@@ -57,7 +58,7 @@ func _input(event):
 		if !event.pressed and dragging:
 			dragging = false
 			yield(get_tree(), "idle_frame")
-			if data.just_moved:
+			if move_data.did_move:
 				emit_signal("card_emptied")
 
 
@@ -67,7 +68,9 @@ func get_drag_data(position):
 	dragging = true
 	drag_card.data = data
 	set_drag_preview(drag_card)
-	return data
+	move_data.did_move = false
+	move_data.card_data = data
+	return move_data
 
 func can_drop_data(position, data):
 	return false
