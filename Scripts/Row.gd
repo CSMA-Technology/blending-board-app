@@ -2,12 +2,11 @@ extends HFlowContainer
 
 class_name Row
 
-#export var show_add_card_button := false setget toggle_add_card_visibility
-
 onready var is_empty := get_child_count() == 1
 
 signal add_button_pressed
 signal card_removed
+signal card_inserted
 
 var read_only = false
 
@@ -27,10 +26,6 @@ func remove_card(card):
 		is_empty = true
 	emit_signal("card_removed", card.data)
 
-#func toggle_add_card_visibility(new_visibility):
-#	show_add_card_button = new_visibility
-#	$AddCardButton.visible = new_visibility
-
 
 func _on_Row_child_exiting_tree(node):
 	if (get_child_count() == 1):
@@ -38,3 +33,29 @@ func _on_Row_child_exiting_tree(node):
 
 func _on_AddCardButton_pressed():
 	emit_signal("add_button_pressed")
+
+func can_drop_data(position, data):
+	return true
+
+func drop_data(position, data):
+	if data is CardData:
+		var new_card_index = derive_child_index_from_point(position)
+		var cards_to_move = []
+		for card_idx in range(new_card_index, get_child_count() - 1):
+			cards_to_move.append(get_child(card_idx))
+		emit_signal("card_inserted", data)
+		for card in cards_to_move:
+			remove_card(card)
+		for card in cards_to_move:
+			emit_signal("card_inserted", card.data)
+
+func derive_child_index_from_point(point: Vector2):
+	if is_empty:
+		return 0
+	# This assumes children will be the same width 
+	var slot_size = get_child(0).rect_size + Vector2(get_constant("hseparation"), get_constant("vseparation"))
+	var num_children_per_line =  floor(rect_size.x / slot_size.x)
+	var line = floor(point.y / slot_size.y)
+	var left_buffer = floor(line * num_children_per_line)
+	var position_in_line = floor(point.x / slot_size.x)
+	return left_buffer + position_in_line
