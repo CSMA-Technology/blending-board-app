@@ -6,7 +6,7 @@ const CardScene = preload("res://Scenes/Card.tscn")
 
 var data:CardData
 var dragging := false
-var pre_drag_position: Vector2
+var move_data = {}
 signal card_emptied
 
 func _ready():
@@ -58,17 +58,19 @@ func _input(event):
 		if !event.pressed and dragging:
 			dragging = false
 			yield(get_tree(), "idle_frame")
-			if pre_drag_position != Vector2(data.row, data.column):
+			if move_data.did_move:
 				emit_signal("card_emptied")
 
+
 func get_drag_data(position):
-	pre_drag_position = Vector2(data.row, data.column)
 	$LineEdit.hide()
 	var drag_card = CardScene.instance()
 	dragging = true
 	drag_card.data = data
 	set_drag_preview(drag_card)
-	return data
+	move_data.did_move = false
+	move_data.card_data = data
+	return move_data
 
 func can_drop_data(position, data):
 	return false
