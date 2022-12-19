@@ -16,20 +16,20 @@ func _ready():
 	
 	$UI/DeckNameEdit.text = deck.name
 	
-	for card in deck.cards:
-		while card.column >= $UI/Columns.get_child_count() - 1:
-			add_column()
-		var newCard = CardEdit.instance()
-		newCard.data = card
-		$UI/Columns.get_child(card.column).add_card(newCard)
+	for card_data in deck.cards:
+		fill_columns(card_data)
+		var new_card = CardEdit.instance()
+		new_card.data = card_data
+		$UI/Columns.get_child(card_data.column).add_card(new_card)
 
 func add_column():
-	var newColumn = Column.instance()
-	$UI/Columns.add_child(newColumn)
+	var new_column = Column.instance()
+	$UI/Columns.add_child(new_column)
 	$UI/Columns.move_child($UI/Columns/AddColumnButton, $UI/Columns.get_child_count() - 1)
-	newColumn.connect("add_card_requested", self, "add_card_to_deck", [newColumn])
-	newColumn.connect("card_removed", self, "remove_card_from_deck")
-	newColumn.connect("row_removed", self, "handle_row_removed", [newColumn])
+	new_column.connect("add_card_requested", self, "add_empty_card_to_deck", [new_column])
+	new_column.connect("card_removed", self, "remove_card_from_deck")
+	new_column.connect("row_removed", self, "handle_row_removed", [new_column])
+	new_column.connect("card_inserted", self, "on_card_dropped_in_column", [new_column])
 
 func remove_column(column: Column):
 	var col_index = column.get_index()
@@ -39,12 +39,25 @@ func remove_column(column: Column):
 		if card.column > col_index:
 			card.column = card.column - 1
 
-func add_card_to_deck(row: int, column: Column):
+func on_card_dropped_in_column(card_data: CardData, row: int, column: Column):
+	card_data.row = row
+	card_data.column = column.get_index()
+	add_card_to_deck(card_data)
+
+func add_empty_card_to_deck(row: int, column: Column):
 	var newCardData = CardData.new("", column.get_index(), row)
-	deck.cards.append(newCardData)
+	add_card_to_deck(newCardData)
+
+func add_card_to_deck(card_data: CardData):
+	deck.cards.append(card_data)
 	var newCardEdit = CardEdit.instance()
-	newCardEdit.data = newCardData
-	$UI/Columns.get_child(column.get_index()).add_card(newCardEdit)
+	newCardEdit.data = card_data
+	fill_columns(card_data)
+	$UI/Columns.get_child(card_data.column).add_card(newCardEdit)
+
+func fill_columns(card_data: CardData):
+	while card_data.column >= $UI/Columns.get_child_count() - 1:
+		add_column()
 
 func remove_card_from_deck(card: CardData):
 	deck.cards.remove(deck.cards.find(card))

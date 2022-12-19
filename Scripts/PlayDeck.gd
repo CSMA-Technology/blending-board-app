@@ -17,7 +17,7 @@ func _ready():
 	$UI/DeckName.text = deck.name
 	
 	for card in deck.cards: 
-		if card.column + 1 > $UI/CardDrawer.get_child_count():
+		while card.column + 1 > $UI/CardDrawer.get_child_count():
 			columnCount += 1
 			var new_column = Column.instance()
 			new_column.read_only = true
