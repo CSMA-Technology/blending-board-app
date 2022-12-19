@@ -40,14 +40,17 @@ func can_drop_data(position, data):
 func drop_data(position, data):
 	if data is CardData:
 		var new_card_index = derive_child_index_from_point(position)
+		var new_card_data = CardData.new(data.value)
 		var cards_to_move = []
 		for card_idx in range(new_card_index, get_child_count() - 1):
 			cards_to_move.append(get_child(card_idx))
-		emit_signal("card_inserted", data)
+		emit_signal("card_inserted", new_card_data)
+		data.just_moved = true
 		for card in cards_to_move:
 			remove_card(card)
 		for card in cards_to_move:
-			emit_signal("card_inserted", card.data)
+			if card.data != data:
+				emit_signal("card_inserted", card.data)
 
 func derive_child_index_from_point(point: Vector2):
 	if is_empty:

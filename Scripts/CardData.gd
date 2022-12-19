@@ -13,7 +13,7 @@ var column: int
 var row: int
 var color: String
 var mergeStatus
-
+var just_moved := false # This is a flag that is set by Row. It will mark the card for deletion on the next frame
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
