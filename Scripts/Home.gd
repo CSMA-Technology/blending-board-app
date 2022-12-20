@@ -18,4 +18,4 @@ func _ready():
 
 func _on_NewDeckButton_pressed():
 	UserDataUtils.set_active_deck_id(-1)
-	get_tree().change_scene("res://Scenes/Edit/DeckEdit.tscn")
+	get_tree().change_scene("res://Scenes/Edit/EditDeck.tscn")

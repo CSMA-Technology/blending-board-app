@@ -5,7 +5,6 @@ class_name Column
 var cards:Array #Array of Cards
 
 const Row = preload("res://Scenes/LayoutHelpers/Row.tscn")
-const CardEdit = preload("res://Scenes/Edit/CardEdit.tscn")
 
 signal add_card_requested
 signal card_removed

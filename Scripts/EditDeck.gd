@@ -1,7 +1,7 @@
 extends Node2D
 
 var deck:DeckData
-const CardEdit = preload("res://Scenes/Edit/CardEdit.tscn")
+const EditCard = preload("res://Scenes/Edit/EditCard.tscn")
 const Column = preload("res://Scenes/LayoutHelpers/Column.tscn")
 
 func _ready():
@@ -18,7 +18,7 @@ func _ready():
 	
 	for card_data in deck.cards:
 		fill_columns(card_data)
-		var new_card = CardEdit.instance()
+		var new_card = EditCard.instance()
 		new_card.data = card_data
 		$UI/Columns.get_child(card_data.column).add_card(new_card)
 
@@ -50,7 +50,7 @@ func add_empty_card_to_deck(row: int, column: Column):
 
 func add_card_to_deck(card_data: CardData):
 	deck.cards.append(card_data)
-	var newCardEdit = CardEdit.instance()
+	var newCardEdit = EditCard.instance()
 	newCardEdit.data = card_data
 	fill_columns(card_data)
 	$UI/Columns.get_child(card_data.column).add_card(newCardEdit)

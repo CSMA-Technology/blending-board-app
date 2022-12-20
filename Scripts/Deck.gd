@@ -18,4 +18,4 @@ func _on_TopCard_gui_input(event):
 
 func _on_Edit_pressed():
 	UserDataUtils.set_active_deck_id(deckId)
-	get_tree().change_scene("res://Scenes/Edit/DeckEdit.tscn")
+	get_tree().change_scene("res://Scenes/Edit/EditDeck.tscn")
