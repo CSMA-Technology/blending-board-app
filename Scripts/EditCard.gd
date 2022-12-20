@@ -1,10 +1,9 @@
-extends ColorRect
+extends Card
 
-class_name CardEdit
+class_name EditCard
 
 const CardScene = preload("res://Scenes/Card.tscn")
 
-var data:CardData
 var dragging := false
 var move_data = {}
 signal card_emptied
@@ -22,7 +21,7 @@ func _process(delta):
 
 func set_text(new_text):
 	data.value = new_text
-	$Label.text = data.value
+	$Value.text = data.value
 	$LineEdit.placeholder_text = data.value
 
 func check_text():
@@ -30,23 +29,6 @@ func check_text():
 		emit_signal("card_emptied")
 	else:
 		data.value = data.value.to_lower()
-
-func _on_LineEdit_text_entered(new_text):
-	set_text(new_text)
-	$LineEdit.hide()
-	check_text()
-
-
-func _on_Label_gui_input(event: InputEvent):
-	if event is InputEventMouseButton and !event.is_pressed():
-		$LineEdit.show()
-		$LineEdit.grab_focus()
-
-
-func _on_LineEdit_focus_exited():
-	$LineEdit.hide()
-	$LineEdit.clear()
-#	check_text()
 
 func _input(event):
 	if event is InputEventMouseButton:
@@ -61,7 +43,6 @@ func _input(event):
 			if move_data.did_move:
 				emit_signal("card_emptied")
 
-
 func get_drag_data(position):
 	$LineEdit.hide()
 	var drag_card = CardScene.instance()
@@ -75,5 +56,16 @@ func get_drag_data(position):
 func can_drop_data(position, data):
 	return false
 
-#func drop_data(position, data):
-#	print("Dropped on me")
+func _on_Value_gui_input(event):
+	if event is InputEventMouseButton and !event.is_pressed():
+			$LineEdit.show()
+			$LineEdit.grab_focus()
+
+func _on_LineEdit_text_entered(new_text):
+	set_text(new_text)
+	$LineEdit.hide()
+	check_text()
+
+func _on_LineEdit_focus_exited():
+	$LineEdit.hide()
+	$LineEdit.clear()
