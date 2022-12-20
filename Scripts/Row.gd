@@ -12,11 +12,11 @@ var read_only = false
 
 func _ready():
 	if read_only:
-		$AddCardButton.hide()
+		$RowControls.hide()
 
 func add_card(card):
 	add_child(card)
-	move_child($AddCardButton, get_child_count() - 1)
+	move_child($RowControls, get_child_count() - 1)
 	card.connect("card_emptied", self, "remove_card", [card])
 	is_empty = false
 
@@ -62,3 +62,11 @@ func derive_child_index_from_point(point: Vector2):
 	var left_buffer = floor(line * num_children_per_line)
 	var position_in_line = floor(point.x / slot_size.x)
 	return left_buffer + position_in_line
+
+
+
+func _on_SimpleColorPickerButton_color_chosen(color):
+	for child in get_children():
+		if child is Card:
+			var card = child as Card
+			card.set_color(color)
