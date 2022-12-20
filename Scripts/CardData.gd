@@ -18,7 +18,7 @@ var mergeStatus
 func _ready():
 	pass # Replace with function body.
 
-func _init(value: String = "", column: int = 0, row: int = 0, color: String = "white", mergeStatus=MergeStatus.MERGED):
+func _init(value: String = "", column: int = 0, row: int = 0, color: String = Color.white.to_html(), mergeStatus=MergeStatus.MERGED):
 	self.value = value
 	self.column = column
 	self.row = row

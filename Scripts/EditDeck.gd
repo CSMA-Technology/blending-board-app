@@ -8,7 +8,7 @@ func _ready():
 	var activeDeckId = UserDataUtils.get_active_deck_id()
 	var cards = []
 	if activeDeckId == -1:
-		deck = DeckData.new("", cards)
+		deck = DeckData.new("", cards)	
 	else:
 		deck = UserDataUtils.load_deck_by_id(activeDeckId)
 		cards = deck.cards
