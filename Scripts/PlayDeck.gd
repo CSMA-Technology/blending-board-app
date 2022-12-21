@@ -39,8 +39,8 @@ func _on_Home_pressed():
 
 func _on_Minimize_toggled(button_pressed):
 	if(button_pressed):
-		$DrawerAnimationPlayer.play("minimize_drawer")
-		$BigCardsAnimationPlayer.play("slide_cards_down")
+		$UI/DrawerPanel/AnimationPlayer.play("minimize_drawer")
+		$UI/BigCards/AnimationPlayer.play("slide_cards_down")
 	else:
-		$DrawerAnimationPlayer.play("RESET")
-		$BigCardsAnimationPlayer.play("RESET")
+		$UI/DrawerPanel/AnimationPlayer.play_backwards("minimize_drawer")
+		$UI/BigCards/AnimationPlayer.play_backwards("slide_cards_down")
