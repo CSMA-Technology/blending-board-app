@@ -22,8 +22,14 @@ func show_at_position(position: Vector2):
 	$PanelContainer.rect_position = position
 	show()
 
-
-
 func _on_ClickCatcher_gui_input(event):
 	if event is InputEventMouseButton and !event.is_pressed():
 		hide()
+
+func _on_PanelContainer_item_rect_changed():
+	var visible_size = get_viewport().get_visible_rect().size;
+	var safe_position = Vector2(
+		clamp($PanelContainer.rect_position.x, 0, visible_size.x - $PanelContainer.rect_size.x),
+		clamp($PanelContainer.rect_position.y, 0, visible_size.y - $PanelContainer.rect_size.y)
+	)
+	$PanelContainer.rect_position = safe_position

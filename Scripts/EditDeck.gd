@@ -4,6 +4,8 @@ var deck:DeckData
 const EditCard = preload("res://Scenes/Edit/EditCard.tscn")
 const Column = preload("res://Scenes/LayoutHelpers/Column.tscn")
 
+const MAX_COLUMNS = 5
+
 func _ready():
 	var activeDeckId = UserDataUtils.get_active_deck_id()
 	var cards = []
@@ -20,16 +22,18 @@ func _ready():
 		fill_columns(card_data)
 		var new_card = EditCard.instance()
 		new_card.data = card_data
-		$UI/Columns.get_child(card_data.column).add_card(new_card)
+		$"%Columns".get_child(card_data.column).add_card(new_card)
 
 func add_column():
 	var new_column = Column.instance()
-	$UI/Columns.add_child(new_column)
-	$UI/Columns.move_child($UI/Columns/AddColumnButton, $UI/Columns.get_child_count() - 1)
+	$"%Columns".add_child(new_column)
+	$"%Columns".move_child($"%Columns"/AddColumnButton, $"%Columns".get_child_count() - 1)
 	new_column.connect("add_card_requested", self, "add_empty_card_to_deck", [new_column])
 	new_column.connect("card_removed", self, "remove_card_from_deck")
 	new_column.connect("row_removed", self, "handle_row_removed", [new_column])
 	new_column.connect("card_inserted", self, "on_card_dropped_in_column", [new_column])
+	if $"%Columns".get_child_count() == MAX_COLUMNS + 1:
+		$"%Columns"/AddColumnButton.hide()
 
 func remove_column(column: Column):
 	var col_index = column.get_index()
@@ -38,6 +42,7 @@ func remove_column(column: Column):
 	for card in deck.cards:
 		if card.column > col_index:
 			card.column = card.column - 1
+	$"%Columns"/AddColumnButton.show()
 
 func on_card_dropped_in_column(card_data: CardData, row: int, column: Column):
 	card_data.row = row
@@ -53,10 +58,10 @@ func add_card_to_deck(card_data: CardData):
 	var newCardEdit = EditCard.instance()
 	newCardEdit.data = card_data
 	fill_columns(card_data)
-	$UI/Columns.get_child(card_data.column).add_card(newCardEdit)
+	$"%Columns".get_child(card_data.column).add_card(newCardEdit)
 
 func fill_columns(card_data: CardData):
-	while card_data.column >= $UI/Columns.get_child_count() - 1:
+	while card_data.column >= $"%Columns".get_child_count() - 1:
 		add_column()
 
 func remove_card_from_deck(card: CardData):

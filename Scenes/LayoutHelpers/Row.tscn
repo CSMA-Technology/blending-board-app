@@ -4,9 +4,9 @@
 [ext_resource path="res://Scenes/Edit/SimpleColorPickerButton.tscn" type="PackedScene" id=2]
 
 [node name="Row" type="HFlowContainer"]
-margin_right = 128.0
+margin_right = 100.0
 margin_bottom = 50.0
-rect_min_size = Vector2( 200, 50 )
+rect_min_size = Vector2( 100, 50 )
 mouse_filter = 1
 size_flags_horizontal = 3
 size_flags_vertical = 0
