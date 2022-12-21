@@ -10,8 +10,8 @@ anchor_bottom = 0.267
 margin_right = -128.0
 margin_bottom = -160.2
 rect_min_size = Vector2( 128, 160 )
-size_flags_horizontal = 3
-size_flags_vertical = 3
+size_flags_horizontal = 4
+size_flags_vertical = 4
 script = ExtResource( 3 )
 
 [node name="Value" parent="." index="1"]

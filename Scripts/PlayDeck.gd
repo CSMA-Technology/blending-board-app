@@ -39,7 +39,7 @@ func _on_Home_pressed():
 
 func _on_Minimize_toggled(button_pressed):
 	if(button_pressed):
-		$DrawerAnimationPlayer.play("minimize_card_drawer")
+		$DrawerAnimationPlayer.play("minimize_drawer")
 		$BigCardsAnimationPlayer.play("slide_cards_down")
 	else:
 		$DrawerAnimationPlayer.play("RESET")
