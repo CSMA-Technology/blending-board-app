@@ -1,7 +1,67 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/PlayDeck.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/poppins_54.tres" type="DynamicFont" id=2]
+
+[sub_resource type="Animation" id=1]
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("UI/DrawerPanel:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 600 ), Vector2( 0, 309 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("UI/DrawerPanel:rect_position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 309 ), Vector2( 0, 600 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("UI/BigCards:rect_position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 20, 220 ), Vector2( 20, 106 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "slide_cards_down"
+tracks/0/type = "value"
+tracks/0/path = NodePath("UI/BigCards:rect_position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 20, 106 ), Vector2( 20, 220 ) ]
+}
 
 [node name="PlayDeck" type="Node2D"]
 script = ExtResource( 1 )
@@ -35,24 +95,52 @@ align = 1
 valign = 1
 
 [node name="BigCards" type="HBoxContainer" parent="UI"]
-anchor_top = 0.213
+anchor_top = 0.177
 anchor_right = 1.0
-anchor_bottom = 0.427
-margin_left = 64.0
-margin_top = 0.199989
-margin_right = -64.0
-margin_bottom = 31.8
+anchor_bottom = 0.443
+margin_left = 20.0
+margin_top = 113.8
+margin_right = -20.0
+margin_bottom = 114.2
 size_flags_horizontal = 4
 alignment = 1
 
-[node name="CardDrawer" type="HBoxContainer" parent="UI"]
+[node name="DrawerPanel" type="Panel" parent="UI"]
+anchor_top = 0.515
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 291.0
+margin_bottom = 291.001
+
+[node name="CardDrawer" type="HBoxContainer" parent="UI/DrawerPanel"]
 anchor_top = 0.533
 anchor_right = 1.0
 anchor_bottom = 0.96
 margin_left = 64.0
-margin_top = 0.199982
+margin_top = -144.103
 margin_right = -64.0
+margin_bottom = -144.303
 custom_constants/separation = 50
 alignment = 1
 
+[node name="Minimize" type="CheckButton" parent="UI/DrawerPanel"]
+anchor_left = 1.0
+anchor_top = -0.003
+anchor_right = 1.0
+anchor_bottom = -0.003
+margin_left = -144.0
+margin_top = -39.127
+margin_right = -4.0
+margin_bottom = 0.873002
+text = "Minimize"
+
+[node name="DrawerAnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 1 )
+anims/minimize_card_drawer = SubResource( 2 )
+
+[node name="BigCardsAnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 3 )
+anims/slide_cards_down = SubResource( 4 )
+
 [connection signal="pressed" from="UI/Home" to="." method="_on_Home_pressed"]
+[connection signal="toggled" from="UI/DrawerPanel/Minimize" to="." method="_on_Minimize_toggled"]

@@ -17,14 +17,14 @@ func _ready():
 	$UI/DeckName.text = deck.name
 	
 	for card in deck.cards: 
-		while card.column + 1 > $UI/CardDrawer.get_child_count():
+		while card.column + 1 > $UI/DrawerPanel/CardDrawer.get_child_count():
 			columnCount += 1
 			var new_column = Column.instance()
 			new_column.read_only = true
-			$UI/CardDrawer.add_child(new_column)
+			$UI/DrawerPanel/CardDrawer.add_child(new_column)
 		var newCard = Card.instance()
 		newCard.data = card
-		$UI/CardDrawer.get_child(card.column).add_card(newCard)
+		$UI/DrawerPanel/CardDrawer.get_child(card.column).add_card(newCard)
 		newCard.connect("card_clicked", self, "_on_Card_clicked")
 	
 	for n in columnCount: 
@@ -36,3 +36,11 @@ func _on_Card_clicked(cardData):
 
 func _on_Home_pressed():
 	get_tree().change_scene("res://Scenes/Home.tscn")
+
+func _on_Minimize_toggled(button_pressed):
+	if(button_pressed):
+		$DrawerAnimationPlayer.play("minimize_card_drawer")
+		$BigCardsAnimationPlayer.play("slide_cards_down")
+	else:
+		$DrawerAnimationPlayer.play("RESET")
+		$BigCardsAnimationPlayer.play("RESET")
