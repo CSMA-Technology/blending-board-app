@@ -10,11 +10,16 @@ signal card_inserted
 
 var read_only = false
 
+var row_color = Color.whitesmoke
+
 func _ready():
 	if read_only:
 		$RowControls.hide()
 
-func add_card(card):
+func add_card(card: Card):
+	if is_empty:
+		row_color = card.data.color
+	card.set_color(row_color)
 	add_child(card)
 	move_child($RowControls, get_child_count() - 1)
 	card.connect("card_emptied", self, "remove_card", [card])
@@ -45,7 +50,7 @@ func drop_data(position, data):
 		for card_idx in range(new_card_index, get_child_count() - 1):
 			cards_to_move.append(get_child(card_idx))
 		emit_signal("card_inserted", new_card_data)
-		data.did_move = true
+		data.dirty = true
 		for card in cards_to_move:
 			remove_card(card)
 		for card in cards_to_move:
@@ -63,9 +68,8 @@ func derive_child_index_from_point(point: Vector2):
 	var position_in_line = floor(point.x / slot_size.x)
 	return left_buffer + position_in_line
 
-
-
 func _on_SimpleColorPickerButton_color_chosen(color):
+	row_color = color
 	for child in get_children():
 		if child is Card:
 			var card = child as Card

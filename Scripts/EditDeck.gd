@@ -22,7 +22,7 @@ func _ready():
 		fill_columns(card_data)
 		var new_card = EditCard.instance()
 		new_card.data = card_data
-		$"%Columns".get_child(card_data.column).add_card(new_card)
+		add_card_to_columns(new_card)
 
 func add_column():
 	var new_column = Column.instance()
@@ -55,10 +55,15 @@ func add_empty_card_to_deck(row: int, column: Column):
 
 func add_card_to_deck(card_data: CardData):
 	deck.cards.append(card_data)
-	var newCardEdit = EditCard.instance()
-	newCardEdit.data = card_data
+	var new_edit_card = EditCard.instance()
+	new_edit_card.data = card_data
 	fill_columns(card_data)
-	$"%Columns".get_child(card_data.column).add_card(newCardEdit)
+	add_card_to_columns(new_edit_card)
+
+func add_card_to_columns(new_edit_card: EditCard):
+	new_edit_card.connect("dragging_started", self, 'on_card_drag_start')
+	new_edit_card.connect("dragging_ended", self, 'on_card_drag_end')
+	$"%Columns".get_child(new_edit_card.data.column).add_card(new_edit_card)
 
 func fill_columns(card_data: CardData):
 	while card_data.column >= $"%Columns".get_child_count() - 1:
@@ -66,6 +71,12 @@ func fill_columns(card_data: CardData):
 
 func remove_card_from_deck(card: CardData):
 	deck.cards.remove(deck.cards.find(card))
+
+func on_card_drag_start():
+	$UI/DeleteCardRegion.show()
+
+func on_card_drag_end():
+	$UI/DeleteCardRegion.hide()
 
 func handle_row_removed(row: int, column: Column):
 	for card in deck.cards:
