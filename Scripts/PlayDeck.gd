@@ -58,6 +58,7 @@ func find_next_card_in_column(column, value):
 				if nextCard.column == column: 
 					nextCardIndex = n + 1
 	return deck.cards[nextCardIndex]
+	
 func _on_Home_pressed():
 	get_tree().change_scene("res://Scenes/Home.tscn")
 
