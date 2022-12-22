@@ -46,7 +46,8 @@ func find_next_card_in_column(data: CardData):
 		var card = deck.cards[cardIdx % deck.cards.size()]
 		if card.column == data.column:
 			return card
-			
+	return deck.cards[0]
+
 func _on_Home_pressed():
 	get_tree().change_scene("res://Scenes/Home.tscn")
 
