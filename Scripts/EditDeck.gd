@@ -95,14 +95,14 @@ func save_deck():
 
 func _on_SaveButton_pressed():
 	save_deck()
-	get_tree().change_scene("res://Scenes/Home.tscn")
+	get_tree().change_scene("res://Scenes/Home/Home.tscn")
 
 func _on_CancelButton_pressed():
-	get_tree().change_scene("res://Scenes/Home.tscn")
+	get_tree().change_scene("res://Scenes/Home/Home.tscn")
 
 func _on_DeleteButton_pressed():
 	$UI/DeleteDialogue.popup()
 
 func _on_DeleteDialogue_confirmed():
 	UserDataUtils.delete_deck(deck.referenceId)
-	get_tree().change_scene("res://Scenes/Home.tscn")
+	get_tree().change_scene("res://Scenes/Home/Home.tscn")
