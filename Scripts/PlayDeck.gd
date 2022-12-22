@@ -17,14 +17,14 @@ func _ready():
 	$UI/DeckName.text = deck.name
 	
 	for card in deck.cards: 
-		while card.column + 1 > $UI/DrawerPanel/CardDrawer.get_child_count():
+		while card.column + 1 > $"%CardDrawer".get_child_count():
 			columnCount += 1
 			var new_column = Column.instance()
 			new_column.read_only = true
-			$UI/DrawerPanel/CardDrawer.add_child(new_column)
+			$"%CardDrawer".add_child(new_column)
 		var newCard = Card.instance()
 		newCard.data = card
-		$UI/DrawerPanel/CardDrawer.get_child(card.column).add_card(newCard)
+		$"%CardDrawer".get_child(card.column).add_card(newCard)
 		newCard.connect("card_clicked", self, "_on_Card_clicked")
 	
 	for n in columnCount:

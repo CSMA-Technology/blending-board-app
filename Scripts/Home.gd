@@ -14,7 +14,8 @@ func _ready():
 			var deck = Deck.instance()
 			deck.deckName = deckMetadata.name
 			deck.deckId = deckMetadata.refId
-			$UI/Decks.add_child(deck)
+			$UI/ScrollContainer/Decks.add_child(deck)
+
 
 func _on_NewDeckButton_pressed():
 	UserDataUtils.set_active_deck_id(-1)
