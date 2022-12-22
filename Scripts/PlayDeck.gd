@@ -6,7 +6,7 @@ var activeDeckId: int
 var columnCount: int
 const Card = preload("res://Scenes/Card.tscn")
 const Column = preload("res://Scenes/LayoutHelpers/Column.tscn")
-const BigCard = preload("res://Scenes/BigCard.tscn")
+const BigCard = preload("res://Scenes/Play/BigCard.tscn")
 
 func _ready():
 	columnCount = 0
@@ -49,7 +49,7 @@ func find_next_card_in_column(data: CardData):
 	return deck.cards[0]
 
 func _on_Home_pressed():
-	get_tree().change_scene("res://Scenes/Home.tscn")
+	get_tree().change_scene("res://Scenes/Home/Home.tscn")
 
 func _on_Minimize_toggled(button_pressed):
 	if(button_pressed):

@@ -1,6 +1,6 @@
 extends Node2D
 
-const Deck = preload("res://Scenes/Deck.tscn")
+const Deck = preload("res://Scenes/Home/Deck.tscn")
 
 func _ready():
 	randomize()
