@@ -29,36 +29,24 @@ func _ready():
 	
 	for n in columnCount:
 		var newBigCard = BigCard.instance()
-		newBigCard.set_column(n)
+		newBigCard.update_card(CardData.new("", n))
 		$UI/BigCardsArea/BigCards.add_child(newBigCard)
 		newBigCard.connect("big_card_clicked", self, "_on_BigCard_clicked")
 
 func _on_Card_clicked(cardData):
-	var column = cardData.column
-	set_big_card_value(column, cardData.value)
+	set_big_card_value(cardData)
 
-func _on_BigCard_clicked(column, value):
-	var newValue = find_next_card_in_column(column, value).value
-	set_big_card_value(column, newValue)
+func _on_BigCard_clicked(data):
+	var newData = find_next_card_in_column(data)
+	set_big_card_value(newData) 
 
-func find_next_card_in_column(column, value):
-	var nextCardIndex = -1
-	for n in deck.cards.size():
-		var card = deck.cards[n]
-		if card.column == column:
-			# note the index of where this particular column starts in the deck
-			if nextCardIndex == -1:
-				nextCardIndex = n
-			if card.value == value:
-				# if at the end of the deck, return the first card in the column
-				if n + 1 == deck.cards.size():
-					break
-				var nextCard = deck.cards[n + 1]
-				# if the next card is part of this column, return it
-				if nextCard.column == column: 
-					nextCardIndex = n + 1
-	return deck.cards[nextCardIndex]
-	
+func find_next_card_in_column(data: CardData):
+	var startingIdx = deck.cards.find(data)
+	for cardIdx in range(startingIdx + 1, deck.cards.size() + startingIdx):
+		var card = deck.cards[cardIdx % deck.cards.size()]
+		if card.column == data.column:
+			return card
+			
 func _on_Home_pressed():
 	get_tree().change_scene("res://Scenes/Home.tscn")
 
@@ -70,5 +58,5 @@ func _on_Minimize_toggled(button_pressed):
 		$UI/DrawerPanel/AnimationPlayer.play_backwards("minimize_drawer")
 		$UI/BigCardsArea/AnimationPlayer.play_backwards("slide_cards_down")
 
-func set_big_card_value(column: int, value: String):
-	$UI/BigCardsArea/BigCards.get_child(column).get_node("Value").text = value
+func set_big_card_value(cardData: CardData):
+	$UI/BigCardsArea/BigCards.get_child(cardData.column).update_card(cardData)
