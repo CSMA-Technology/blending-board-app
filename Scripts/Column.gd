@@ -23,9 +23,9 @@ func _ready():
 	if read_only:
 		$AddRowButton.hide()
 
-func set_cards(cards):
-	self.cards = cards
-	for card in cards:
+func set_cards(new_cards):
+	self.cards = new_cards
+	for card in new_cards:
 		add_card(card)
 
 func add_card(card): # TODO use a base card here instead

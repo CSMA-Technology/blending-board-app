@@ -22,7 +22,8 @@ func add_card(card: Card):
 	card.set_color(row_color)
 	add_child(card)
 	move_child($RowControls, get_child_count() - 1)
-	card.connect("card_emptied", self, "remove_card", [card])
+	if card is EditCard:
+		card.connect("card_emptied", self, "remove_card", [card])
 	is_empty = false
 
 func remove_card(card):
@@ -32,14 +33,14 @@ func remove_card(card):
 	emit_signal("card_removed", card.data)
 
 
-func _on_Row_child_exiting_tree(node):
+func _on_Row_child_exiting_tree(_node):
 	if (get_child_count() == 1):
 		is_empty = true
 
 func _on_AddCardButton_pressed():
 	emit_signal("add_button_pressed")
 
-func can_drop_data(position, data):
+func can_drop_data(_position, _data):
 	return true
 
 func drop_data(position, data):

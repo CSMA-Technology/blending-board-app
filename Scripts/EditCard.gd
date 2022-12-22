@@ -15,7 +15,7 @@ func _ready():
 		data = CardData.new("T", 0, 0, "")
 	set_text(data.value)
 
-func _process(delta):
+func _process(_delta):
 	if dragging:
 		modulate = Color(1, 1, 1, .25)
 	else:
@@ -46,7 +46,7 @@ func _input(event):
 				emit_signal("card_emptied")
 			emit_signal("dragging_ended")
 
-func get_drag_data(position):
+func get_drag_data(_position):
 	$LineEdit.hide()
 	var drag_card = CardScene.instance()
 	dragging = true
@@ -57,7 +57,7 @@ func get_drag_data(position):
 	move_data.card_data = data
 	return move_data
 
-func can_drop_data(position, data):
+func can_drop_data(_position, _data):
 	return false
 
 func _on_Value_gui_input(event):
