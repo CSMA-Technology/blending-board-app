@@ -11,7 +11,7 @@ func _ready():
 
 
 func _on_TopCard_gui_input(event:InputEvent):
-	if !event.is_pressed() and (event is InputEventMouseButton and event.button_index == BUTTON_LEFT) or (event is InputEventScreenTouch):
+	if event is InputEventScreenTouch and !event.pressed:
 		UserDataUtils.set_active_deck_id(deckId)
 		get_tree().change_scene("res://Scenes/Play/PlayDeck.tscn")
 

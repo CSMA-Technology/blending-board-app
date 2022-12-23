@@ -33,18 +33,18 @@ func check_text():
 		data.value = data.value.to_lower()
 
 func _input(event):
-	if event is InputEventMouseButton:
-		if event.pressed and $LineEdit.visible:
-			var evLocal = make_input_local(event)
-			if !Rect2(Vector2(0,0),rect_size).has_point(evLocal.position):
-				$LineEdit.hide()
-				$LineEdit.clear()
-		if !event.pressed and dragging:
+	if event is InputEventScreenTouch and !event.pressed:
+		if dragging:
 			dragging = false
 			yield(get_tree(), "idle_frame")
 			if move_data.dirty:
 				emit_signal("card_emptied")
 			emit_signal("dragging_ended")
+		elif $LineEdit.visible:
+			var evLocal = make_input_local(event)
+			if !Rect2(Vector2(0,0),rect_size).has_point(evLocal.position):
+				$LineEdit.hide()
+				$LineEdit.clear()
 
 func get_drag_data(_position):
 	$LineEdit.hide()
@@ -61,7 +61,7 @@ func can_drop_data(_position, _data):
 	return false
 
 func _on_Value_gui_input(event):
-	if event is InputEventMouseButton and !event.is_pressed():
+	if event is InputEventScreenTouch and !event.pressed:
 			$LineEdit.show()
 			$LineEdit.grab_focus()
 

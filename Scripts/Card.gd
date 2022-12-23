@@ -16,7 +16,7 @@ func _init(data: CardData = CardData.new()):
 
 
 func _on_ColorRect_gui_input(event):
-	if (event is InputEventMouseButton and event.pressed) or (event is InputEventScreenTouch and event.pressed):
+	if event is InputEventScreenTouch and !event.pressed:
 		emit_signal("card_clicked", self.data)
 
 func set_color(new_color: Color):
