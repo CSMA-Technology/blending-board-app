@@ -25,5 +25,5 @@ func _on_Value_draw():
 			break
 			
 func _on_BigCard_gui_input(event):
-	if (event is InputEventMouseButton and event.pressed) or (event is InputEventScreenTouch and event.pressed):
+	if event is InputEventScreenTouch and !event.pressed:
 		emit_signal("big_card_clicked", data)

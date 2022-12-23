@@ -23,7 +23,7 @@ func show_at_position(position: Vector2):
 	show()
 
 func _on_ClickCatcher_gui_input(event):
-	if event is InputEventMouseButton and !event.is_pressed():
+	if event is InputEventScreenTouch and !event.pressed:
 		hide()
 
 func _on_PanelContainer_item_rect_changed():
