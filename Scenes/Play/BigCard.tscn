@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scripts/BigCard.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Card.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/fonts/poppins_54.tres" type="DynamicFont" id=3]
+[ext_resource path="res://assets/fonts/Heebo/Heebo_Medium_64.tres" type="DynamicFont" id=3]
 
 [node name="BigCard" instance=ExtResource( 2 )]
 anchor_right = 0.125
