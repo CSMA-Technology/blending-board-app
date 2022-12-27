@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scripts/BigCard.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Card.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/fonts/poppins_54.tres" type="DynamicFont" id=3]
+[ext_resource path="res://assets/fonts/Heebo/Heebo_Medium_64.tres" type="DynamicFont" id=3]
 
 [node name="BigCard" instance=ExtResource( 2 )]
 anchor_right = 0.125
@@ -22,4 +22,5 @@ margin_bottom = 64.0
 custom_fonts/font = ExtResource( 3 )
 
 [connection signal="gui_input" from="." to="." method="_on_BigCard_gui_input"]
+[connection signal="gui_input" from="Background" to="." method="_on_BigCard_gui_input"]
 [connection signal="draw" from="Value" to="." method="_on_Value_draw"]

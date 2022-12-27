@@ -1,13 +1,10 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://assets/fonts/Poppins-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/fonts/Heebo/Heebo_Regular_32.tres" type="DynamicFont" id=1]
 [ext_resource path="res://assets/fonts/poppins_20.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Scripts/Home.gd" type="Script" id=3]
-[ext_resource path="res://assets/fonts/poppins_54.tres" type="DynamicFont" id=4]
-
-[sub_resource type="DynamicFont" id=1]
-size = 40
-font_data = ExtResource( 1 )
+[ext_resource path="res://assets/fonts/Contrail/Contrail_48.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Scenes/AppBackground.tscn" type="PackedScene" id=5]
 
 [node name="Home" type="Node2D"]
 script = ExtResource( 3 )
@@ -16,23 +13,19 @@ script = ExtResource( 3 )
 margin_right = 1024.0
 margin_bottom = 600.0
 
-[node name="Background" type="ColorRect" parent="UI"]
-anchor_top = 0.013
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = -7.8
-color = Color( 0.282353, 0.298039, 0.337255, 1 )
+[node name="AppBackground" parent="UI" instance=ExtResource( 5 )]
 
 [node name="Title" type="Label" parent="UI"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -96.0
-margin_top = 56.0
-margin_right = 99.0
-margin_bottom = 135.0
+margin_left = -214.5
+margin_top = 42.0
+margin_right = 214.5
+margin_bottom = 121.0
 rect_pivot_offset = Vector2( 121.5, 51 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 4 )
-text = "Blendi"
+text = "PHONICS BOARD"
 align = 1
 valign = 1
 
@@ -44,7 +37,8 @@ margin_top = 128.0
 margin_right = 275.0
 margin_bottom = 193.0
 rect_pivot_offset = Vector2( 121.5, 51 )
-custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 1 )
 text = "Select a deck to get started"
 align = 1
 valign = 1
