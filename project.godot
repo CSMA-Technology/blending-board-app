@@ -63,11 +63,16 @@ config/icon="res://assets/icons/icon.png"
 [autoload]
 
 UserDataUtils="*res://Scripts/UserDataUtils.gd"
+GameAnalytics="*res://addons/game_analytics/GameAnalytics.gd"
 
 [display]
 
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/game_analytics/plugin.cfg" )
 
 [global]
 
