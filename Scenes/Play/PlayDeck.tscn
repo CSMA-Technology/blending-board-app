@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/PlayDeck.gd" type="Script" id=1]
-[ext_resource path="res://assets/fonts/poppins_54.tres" type="DynamicFont" id=2]
+[ext_resource path="res://assets/fonts/Contrail/Contrail_48.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Scenes/AppBackground.tscn" type="PackedScene" id=3]
 
 [sub_resource type="Animation" id=2]
 resource_name = "slide_cards_down"
@@ -42,10 +43,7 @@ script = ExtResource( 1 )
 margin_right = 1024.0
 margin_bottom = 600.0
 
-[node name="ColorRect" type="ColorRect" parent="UI"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 0.282353, 0.298039, 0.337255, 1 )
+[node name="AppBackground" parent="UI" instance=ExtResource( 3 )]
 
 [node name="Home" type="Button" parent="UI"]
 margin_left = 64.0
@@ -61,6 +59,7 @@ margin_left = -153.5
 margin_top = 30.0
 margin_right = 153.5
 margin_bottom = 79.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 2 )
 text = "Deck Name"
 align = 1
