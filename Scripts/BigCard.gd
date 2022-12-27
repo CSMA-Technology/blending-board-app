@@ -19,11 +19,12 @@ func update_card(cardData: CardData):
 	$Value.text = cardData.value
 
 func _on_Value_draw():
+	$Background.set("custom_styles/panel", whiteCard)
 	for vowel in VOWELS:
 		if vowel in $Value.text.to_lower():
 			$Background.set("custom_styles/panel", yellowCard)
 			break
-			
+
 func _on_BigCard_gui_input(event):
 	if event is InputEventScreenTouch and !event.pressed:
 		emit_signal("big_card_clicked", data)
