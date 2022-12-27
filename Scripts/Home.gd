@@ -3,6 +3,7 @@ extends Node2D
 const Deck = preload("res://Scenes/Home/Deck.tscn")
 
 func _ready():
+	GameAnalytics.init() # Sandbox mode for now
 	randomize()
 	
 	UserDataUtils.initialize_app_data()
