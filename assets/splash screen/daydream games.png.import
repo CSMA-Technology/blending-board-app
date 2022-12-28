@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/daydream games logo.png-a50bbc9711cee4335ec6b1d6cad8aa0d.stex"
+path="res://.import/daydream games.png-7bffab080126cc55425a83099a818a39.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/daydream games logo.png"
-dest_files=[ "res://.import/daydream games logo.png-a50bbc9711cee4335ec6b1d6cad8aa0d.stex" ]
+source_file="res://assets/splash screen/daydream games.png"
+dest_files=[ "res://.import/daydream games.png-7bffab080126cc55425a83099a818a39.stex" ]
 
 [params]
 

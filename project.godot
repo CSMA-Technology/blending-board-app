@@ -58,6 +58,7 @@ _global_script_class_icons={
 
 config/name="Blending Board App"
 run/main_scene="res://Scenes/Home/Home.tscn"
+boot_splash/image="res://assets/splash screen/splash screen 1.png"
 config/icon="res://assets/icons/icon.png"
 
 [autoload]
