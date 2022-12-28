@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/daydream games logo.png-a50bbc9711cee4335ec6b1d6cad8aa0d.stex"
+path="res://.import/phonics board.png-63fdc94b71acefe17b924813c290deb5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/daydream games logo.png"
-dest_files=[ "res://.import/daydream games logo.png-a50bbc9711cee4335ec6b1d6cad8aa0d.stex" ]
+source_file="res://assets/splash screen/phonics board.png"
+dest_files=[ "res://.import/phonics board.png-63fdc94b71acefe17b924813c290deb5.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
