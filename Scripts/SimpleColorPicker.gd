@@ -1,13 +1,13 @@
 extends CanvasLayer
 
 const COLORS = [Color.whitesmoke, Color.green, Color.blue, Color.red]
-const ColorPickerSquare = preload("res://Scenes/Edit/ColorPickerSquare.tscn")
+const ColorPickerTile = preload("res://Scenes/Edit/ColorPickerTile.tscn")
 
 signal color_chosen
 
 func _ready():
 	for color in COLORS:
-		var new_color_picker_square = ColorPickerSquare.instance()
+		var new_color_picker_square = ColorPickerTile.instance()
 		new_color_picker_square.get_child(0).color = color
 		new_color_picker_square.connect("pressed", self, 'on_color_selected', [ color ])
 		
