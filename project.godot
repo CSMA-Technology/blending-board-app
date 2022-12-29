@@ -70,7 +70,7 @@ _global_script_class_icons={
 
 config/name="Blending Board App"
 run/main_scene="res://Scenes/SplashScreen.tscn"
-boot_splash/image="res://assets/splash screen/black screen.png"
+boot_splash/image="res://assets/splash screen/transition overlay.png"
 config/icon="res://assets/icons/icon.png"
 
 [autoload]
