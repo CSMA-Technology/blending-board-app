@@ -17,7 +17,6 @@ func _ready():
 			deck.deckId = deckMetadata.refId
 			$UI/ScrollContainer/Decks.add_child(deck)
 
-
 func _on_NewDeckButton_pressed():
 	UserDataUtils.set_active_deck_id(-1)
 	get_tree().change_scene("res://Scenes/Edit/EditDeck.tscn")

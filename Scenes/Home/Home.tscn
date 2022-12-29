@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://assets/fonts/Heebo/Heebo_Regular_32.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Scenes/Home/HomeText.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/fonts/poppins_20.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Scripts/Home.gd" type="Script" id=3]
-[ext_resource path="res://assets/fonts/Contrail/Contrail_48.tres" type="DynamicFont" id=4]
-[ext_resource path="res://Scenes/AppBackground.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/splash screen/daydream games.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/AppBackground.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/fonts/Heebo/Heebo_Regular_22.tres" type="DynamicFont" id=7]
 
 [node name="Home" type="Node2D"]
 script = ExtResource( 3 )
@@ -13,35 +14,7 @@ script = ExtResource( 3 )
 margin_right = 1024.0
 margin_bottom = 600.0
 
-[node name="AppBackground" parent="UI" instance=ExtResource( 5 )]
-
-[node name="Title" type="Label" parent="UI"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -214.5
-margin_top = 42.0
-margin_right = 214.5
-margin_bottom = 121.0
-rect_pivot_offset = Vector2( 121.5, 51 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = ExtResource( 4 )
-text = "PHONICS BOARD"
-align = 1
-valign = 1
-
-[node name="Subtitle" type="Label" parent="UI"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -276.0
-margin_top = 128.0
-margin_right = 275.0
-margin_bottom = 193.0
-rect_pivot_offset = Vector2( 121.5, 51 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = ExtResource( 1 )
-text = "Select a deck to get started"
-align = 1
-valign = 1
+[node name="AppBackground" parent="UI" instance=ExtResource( 6 )]
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI"]
 margin_left = 368.0
@@ -73,5 +46,43 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/vseparation = 25
 custom_constants/hseparation = 100
+
+[node name="TransitionOverlay" type="ColorRect" parent="UI"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0941176, 0.0666667, 0.137255, 1 )
+
+[node name="Branding" type="Control" parent="UI"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -20.0
+margin_top = -40.0
+margin_right = 20.0
+
+[node name="ColorRect" type="ColorRect" parent="UI/Branding"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -492.0
+margin_top = -48.0
+margin_right = 492.0
+color = Color( 0.0941176, 0.0666667, 0.137255, 0.490196 )
+
+[node name="Sprite" type="Sprite" parent="UI/Branding"]
+position = Vector2( 56, 17 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="UI/Branding"]
+margin_left = -152.0
+margin_right = -50.0
+margin_bottom = 34.0
+custom_fonts/font = ExtResource( 7 )
+text = "created by"
+
+[node name="HomeText" parent="UI" instance=ExtResource( 1 )]
 
 [connection signal="pressed" from="UI/HBoxContainer/NewDeckButton" to="." method="_on_NewDeckButton_pressed"]

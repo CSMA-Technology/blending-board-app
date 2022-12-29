@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/fonts/Heebo/Heebo_Regular_32.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/fonts/Contrail/Contrail_48.tres" type="DynamicFont" id=2]
+
+[node name="HomeText" type="Control"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -20.0
+margin_right = 20.0
+margin_bottom = 40.0
+
+[node name="Title" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -140.0
+margin_top = 49.5
+margin_right = 140.0
+margin_bottom = 110.5
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "PHONICS BOARD"
+align = 1
+valign = 1
+
+[node name="Subtitle" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -136.0
+margin_top = 124.0
+margin_right = 128.0
+margin_bottom = 158.0
+rect_pivot_offset = Vector2( 121.5, 51 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "Select a deck to get started"
+align = 1
+valign = 1
