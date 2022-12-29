@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/splash screen/daydream games.png" type="Texture" id=1]
-[ext_resource path="res://Scenes/SplashScreen.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/SplashScreen.gd" type="Script" id=2]
 [ext_resource path="res://assets/fonts/Heebo/Heebo_Regular_22.tres" type="DynamicFont" id=3]
 [ext_resource path="res://Scenes/AppBackground.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Home/HomeText.tscn" type="PackedScene" id=5]
