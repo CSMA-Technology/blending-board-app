@@ -43,6 +43,16 @@ _global_script_classes=[ {
 "class": "Row",
 "language": "GDScript",
 "path": "res://Scripts/Row.gd"
+}, {
+"base": "TabDock",
+"class": "SimpleColorPicker",
+"language": "GDScript",
+"path": "res://Scripts/SimpleColorPicker.gd"
+}, {
+"base": "PanelContainer",
+"class": "TabDock",
+"language": "GDScript",
+"path": "res://Scripts/TabDock.gd"
 } ]
 _global_script_class_icons={
 "Card": "",
@@ -51,7 +61,9 @@ _global_script_class_icons={
 "Deck": "",
 "DeckData": "",
 "EditCard": "",
-"Row": ""
+"Row": "",
+"SimpleColorPicker": "",
+"TabDock": ""
 }
 
 [application]

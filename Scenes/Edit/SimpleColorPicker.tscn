@@ -1,27 +1,13 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scripts/SimpleColorPicker.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/LayoutHelpers/TabDock.tscn" type="PackedScene" id=2]
 
-[node name="SimpleColorPicker" type="CanvasLayer"]
-layer = 2
+[node name="SimpleColorPicker" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
 
-[node name="ClickCatcher" type="Control" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_bottom = 40.0
-
-[node name="PanelContainer" type="PanelContainer" parent="."]
-margin_right = 14.0
-margin_bottom = 14.0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 7.0
-margin_bottom = 7.0
-focus_mode = 2
-mouse_filter = 0
-
-[connection signal="gui_input" from="ClickCatcher" to="." method="_on_ClickCatcher_gui_input"]
-[connection signal="item_rect_changed" from="PanelContainer" to="." method="_on_PanelContainer_item_rect_changed"]
+[node name="ColorContainer" type="VBoxContainer" parent="." index="0"]
+unique_name_in_owner = true
+margin_top = 2.0
+margin_right = 50.0
+margin_bottom = 268.0

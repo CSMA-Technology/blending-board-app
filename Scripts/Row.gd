@@ -44,6 +44,9 @@ func can_drop_data(_position, _data):
 	return true
 
 func drop_data(position, data):
+	if data is Color:
+		_set_row_color(data)
+		return
 	if "card_data" in data:
 		var new_card_index = derive_child_index_from_point(position)
 		var new_card_data = CardData.new(data.card_data.value)
@@ -69,7 +72,7 @@ func derive_child_index_from_point(point: Vector2):
 	var position_in_line = floor(point.x / slot_size.x)
 	return left_buffer + position_in_line
 
-func _on_SimpleColorPickerButton_color_chosen(color):
+func _set_row_color(color):
 	row_color = color
 	for child in get_children():
 		if child is Card:
