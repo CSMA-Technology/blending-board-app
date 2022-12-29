@@ -1,4 +1,4 @@
-extends HFlowContainer
+extends PanelContainer
 
 class_name Row
 
@@ -14,21 +14,21 @@ var row_color = Color.whitesmoke
 
 func _ready():
 	if read_only:
-		$RowControls.hide()
+		$"%RowControls".hide()
 
 func add_card(card: Card):
 	if is_empty:
 		row_color = card.data.color
 	card.set_color(row_color)
-	add_child(card)
-	move_child($RowControls, get_child_count() - 1)
+	$HFlowContainer.add_child(card)
+	$HFlowContainer.move_child($"%RowControls", $HFlowContainer.get_child_count() - 1)
 	if card is EditCard:
 		card.connect("card_emptied", self, "remove_card", [card])
 	is_empty = false
 
 func remove_card(card):
-	remove_child(card)
-	if (get_child_count() == 1):
+	$HFlowContainer.remove_child(card)
+	if ($HFlowContainer.get_child_count() == 1):
 		is_empty = true
 	emit_signal("card_removed", card.data)
 
@@ -51,8 +51,8 @@ func drop_data(position, data):
 		var new_card_index = derive_child_index_from_point(position)
 		var new_card_data = CardData.new(data.card_data.value)
 		var cards_to_move = []
-		for card_idx in range(new_card_index, get_child_count() - 1):
-			cards_to_move.append(get_child(card_idx))
+		for card_idx in range(new_card_index, $HFlowContainer.get_child_count() - 1):
+			cards_to_move.append($HFlowContainer.get_child(card_idx))
 		emit_signal("card_inserted", new_card_data)
 		data.dirty = true
 		for card in cards_to_move:
@@ -65,7 +65,7 @@ func derive_child_index_from_point(point: Vector2):
 	if is_empty:
 		return 0
 	# This assumes children will be the same width 
-	var slot_size = get_child(0).rect_size + Vector2(get_constant("hseparation"), get_constant("vseparation"))
+	var slot_size = $HFlowContainer.get_child(0).rect_size + Vector2($HFlowContainer.get_constant("hseparation"), $HFlowContainer.get_constant("vseparation"))
 	var num_children_per_line =  floor(rect_size.x / slot_size.x)
 	var line = floor(point.y / slot_size.y)
 	var left_buffer = floor(line * num_children_per_line)
@@ -74,7 +74,7 @@ func derive_child_index_from_point(point: Vector2):
 
 func _set_row_color(color):
 	row_color = color
-	for child in get_children():
+	for child in $HFlowContainer.get_children():
 		if child is Card:
 			var card = child as Card
 			card.set_color(color)

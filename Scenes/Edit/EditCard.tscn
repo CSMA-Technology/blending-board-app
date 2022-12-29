@@ -11,9 +11,12 @@ mouse_filter = 1
 
 [node name="LineEdit" type="LineEdit" parent="." index="2"]
 visible = false
-margin_right = 50.0
-margin_bottom = 50.0
+margin_left = 8.0
+margin_top = 7.0
+margin_right = 42.0
+margin_bottom = 31.0
 mouse_filter = 1
+theme_type_variation = "CardLineEdit"
 custom_constants/minimum_spaces = 0
 align = 1
 

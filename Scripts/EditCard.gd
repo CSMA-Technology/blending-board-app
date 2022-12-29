@@ -62,14 +62,17 @@ func can_drop_data(_position, _data):
 
 func _on_Value_gui_input(event):
 	if event is InputEventScreenTouch and !event.pressed:
+			$Value.hide()
 			$LineEdit.show()
 			$LineEdit.grab_focus()
 
 func _on_LineEdit_text_entered(new_text):
 	set_text(new_text)
 	$LineEdit.hide()
+	$Value.show()
 	check_text()
 
 func _on_LineEdit_focus_exited():
 	$LineEdit.hide()
 	$LineEdit.clear()
+	$Value.show()
