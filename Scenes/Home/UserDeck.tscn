@@ -19,4 +19,5 @@ texture_normal = ExtResource( 3 )
 expand = true
 
 [connection signal="gui_input" from="Cards/TopCard" to="." method="_on_TopCard_gui_input"]
+[connection signal="button_down" from="EditButton" to="." method="_on_EditButton_button_down"]
 [connection signal="pressed" from="EditButton" to="." method="_on_EditButton_pressed"]
