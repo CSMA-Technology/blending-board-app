@@ -7,9 +7,12 @@ func _ready():
 	$Cards/TopCard/DeckName.text = deckName
 
 func _on_TopCard_gui_input(event:InputEvent):
-	if event is InputEventScreenTouch and !event.pressed:
-		UserDataUtils.set_active_deck_id(deckId)
-		get_tree().change_scene("res://Scenes/Play/PlayDeck.tscn")
+	if event is InputEventScreenTouch:
+		var tween = create_tween()
+		tween.tween_property($Cards/TopCard, "modulate", Color.floralwhite, 0)
+		if !event.pressed:
+			UserDataUtils.set_active_deck_id(deckId)
+			get_tree().change_scene("res://Scenes/Play/PlayDeck.tscn")
 
 func _on_EditButton_pressed():
 	UserDataUtils.set_active_deck_id(deckId)
