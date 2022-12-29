@@ -3,9 +3,12 @@
 [ext_resource path="res://Scenes/Home/HomeText.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/fonts/poppins_20.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Scripts/Home.gd" type="Script" id=3]
+[ext_resource path="res://assets/fonts/Contrail/Contrail_48.tres" type="DynamicFont" id=4]
 [ext_resource path="res://assets/splash screen/daydream games.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/AppBackground.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/fonts/Heebo/Heebo_Regular_22.tres" type="DynamicFont" id=7]
+[ext_resource path="res://assets/fonts/Heebo/Heebo_Regular_32.tres" type="DynamicFont" id=8]
+[ext_resource path="res://Scenes/Home/NewDeck.tscn" type="PackedScene" id=9]
 
 [node name="Home" type="Node2D"]
 script = ExtResource( 3 )
@@ -24,13 +27,6 @@ margin_bottom = 248.0
 custom_constants/separation = 50
 alignment = 1
 
-[node name="NewDeckButton" type="Button" parent="UI/HBoxContainer"]
-margin_left = 83.0
-margin_right = 200.0
-margin_bottom = 40.0
-custom_fonts/font = ExtResource( 2 )
-text = "NEW DECK"
-
 [node name="ScrollContainer" type="ScrollContainer" parent="UI"]
 anchor_top = 0.5
 anchor_right = 1.0
@@ -45,7 +41,7 @@ margin_bottom = 300.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/vseparation = 25
-custom_constants/hseparation = 100
+custom_constants/hseparation = 15
 
 [node name="TransitionOverlay" type="ColorRect" parent="UI"]
 visible = false
@@ -86,3 +82,6 @@ text = "created by"
 [node name="HomeText" parent="UI" instance=ExtResource( 1 )]
 
 [connection signal="pressed" from="UI/HBoxContainer/NewDeckButton" to="." method="_on_NewDeckButton_pressed"]
+[node name="NewDeck" parent="UI/ScrollContainer/Decks" instance=ExtResource( 9 )]
+margin_right = 160.0
+margin_bottom = 208.0
