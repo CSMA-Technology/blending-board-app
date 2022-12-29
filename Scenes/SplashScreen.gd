@@ -2,12 +2,13 @@ extends Node2D
 
 func _ready():
 	var tween = get_tree().create_tween()
-	tween.tween_property($DaydreamTitle, "position:y", 488.0, 1).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_IN)
-	tween.tween_property($PhonicsTitle, "modulate", Color.white, 0.7)
-	tween.parallel().tween_property($DaydreamTitle, "position:x", 400.0, 0.5)
-	tween.parallel().tween_property($DaydreamTitle, "scale", Vector2(0.2, 0.2), 0.5)
-	tween.tween_property($UI/Label, "custom_colors/font_color", Color.white, 0.1)
-	tween.parallel().tween_property($DaydreamTitle, "position:x", 468.0, 0.2).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
+	tween.connect("finished", self, "_on_Timer_timeout")
+	tween.tween_property($Branding/DaydreamTitle, "modulate", Color.white, 1.2)
+	tween.tween_interval(0.3)
+	tween.tween_property($Branding/DaydreamTitle, "position:y", 577.0, 1).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_IN)
+	tween.parallel().tween_property($Branding/DaydreamTitle, "scale", Vector2(0.1, 0.1), 0.5)
+	tween.tween_property($Branding/Label, "custom_colors/font_color", Color.white, 0.1)
+	tween.parallel().tween_property($Branding/DaydreamTitle, "position:x", 548.0, 0.5).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
 	
 func _on_Timer_timeout():
 	get_tree().change_scene("res://Scenes/Home/Home.tscn")

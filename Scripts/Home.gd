@@ -3,6 +3,9 @@ extends Node2D
 const Deck = preload("res://Scenes/Home/Deck.tscn")
 
 func _ready():
+	var tween = get_tree().create_tween()
+	tween.tween_property($UI/ColorRect2, "modulate", Color(0, 0, 0, 0), 0.5)
+	tween.connect("finished", self, "_on_Tween_done")
 	GameAnalytics.init() # Sandbox mode for now
 	randomize()
 	
@@ -17,6 +20,8 @@ func _ready():
 			deck.deckId = deckMetadata.refId
 			$UI/ScrollContainer/Decks.add_child(deck)
 
+func _on_Tween_done():
+	$UI/ColorRect2.queue_free()
 
 func _on_NewDeckButton_pressed():
 	UserDataUtils.set_active_deck_id(-1)
