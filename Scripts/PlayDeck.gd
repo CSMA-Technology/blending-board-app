@@ -52,12 +52,14 @@ func _on_Home_pressed():
 	get_tree().change_scene("res://Scenes/Home/Home.tscn")
 
 func _on_Minimize_toggled(button_pressed):
-	if(button_pressed):
-		$UI/DrawerPanel/AnimationPlayer.play("minimize_drawer")
-		$UI/BigCardsArea/AnimationPlayer.play("slide_cards_down")
+	var tween = get_tree().create_tween().set_parallel().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	if button_pressed:
+		tween.tween_property($UI/DrawerPanel, "rect_position:y", 600.0, 0.2).from_current()
+		tween.tween_property($UI/BigCardsArea, "rect_position:y", 220.0, 0.2).from_current()
+		
 	else:
-		$UI/DrawerPanel/AnimationPlayer.play_backwards("minimize_drawer")
-		$UI/BigCardsArea/AnimationPlayer.play_backwards("slide_cards_down")
+		tween.tween_property($UI/DrawerPanel, "rect_position:y", 309.0, 0.2).from_current()
+		tween.tween_property($UI/BigCardsArea, "rect_position:y", 106.0, 0.2).from_current()
 
 func set_big_card_value(cardData: CardData):
 	$UI/BigCardsArea/BigCards.get_child(cardData.column).update_card(cardData)

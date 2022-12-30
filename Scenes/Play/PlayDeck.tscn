@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/PlayDeck.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/Contrail/Contrail_48.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Scenes/AppBackground.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Styles/MainTheme.tres" type="Theme" id=4]
+[ext_resource path="res://Scenes/LayoutHelpers/TabDock.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/icons/buttons/home.png" type="Texture" id=6]
 
 [sub_resource type="Animation" id=2]
 resource_name = "slide_cards_down"
@@ -45,13 +48,6 @@ margin_bottom = 600.0
 
 [node name="AppBackground" parent="UI" instance=ExtResource( 3 )]
 
-[node name="Home" type="Button" parent="UI"]
-margin_left = 64.0
-margin_top = 40.0
-margin_right = 115.0
-margin_bottom = 60.0
-text = "Home"
-
 [node name="DeckName" type="Label" parent="UI"]
 anchor_left = 0.5
 anchor_right = 0.5
@@ -87,6 +83,8 @@ anims/slide_cards_down = SubResource( 2 )
 anchor_top = 0.515
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource( 4 )
+theme_type_variation = "Tray"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="UI/DrawerPanel"]
 anchor_right = 1.0
@@ -107,17 +105,30 @@ alignment = 1
 
 [node name="Minimize" type="CheckButton" parent="UI/DrawerPanel"]
 anchor_left = 1.0
-anchor_top = -0.003
 anchor_right = 1.0
-anchor_bottom = -0.003
-margin_left = -144.0
-margin_top = -39.127
-margin_right = -4.0
-margin_bottom = 0.873002
-text = "Minimize"
+margin_left = -98.0
+margin_top = -45.0
+margin_right = -16.0
+grow_horizontal = 0
+theme = ExtResource( 4 )
+theme_type_variation = "HideTray"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="UI/DrawerPanel"]
 anims/minimize_drawer = SubResource( 1 )
 
-[connection signal="pressed" from="UI/Home" to="." method="_on_Home_pressed"]
+[node name="TabDock" parent="UI" instance=ExtResource( 5 )]
+margin_left = 71.0
+margin_top = 3.0
+margin_right = 293.0
+margin_bottom = 223.0
+rect_scale = Vector2( 0.25, 0.25 )
+
+[node name="HomeButton" type="Button" parent="UI/TabDock"]
+margin_left = 2.0
+margin_right = 220.0
+margin_bottom = 218.0
+icon = ExtResource( 6 )
+icon_align = 1
+
 [connection signal="toggled" from="UI/DrawerPanel/Minimize" to="." method="_on_Minimize_toggled"]
+[connection signal="pressed" from="UI/TabDock/HomeButton" to="." method="_on_Home_pressed"]
