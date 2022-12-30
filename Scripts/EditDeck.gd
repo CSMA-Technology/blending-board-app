@@ -101,8 +101,9 @@ func _on_CancelButton_pressed():
 	get_tree().change_scene("res://Scenes/Home/Home.tscn")
 
 func _on_DeleteButton_pressed():
-	$UI/DeleteDialogue.popup()
+	$UI/DeleteDialog.popup_centered()
 
-func _on_DeleteDialogue_confirmed():
+
+func _on_DeleteDialog_confirmed():
 	UserDataUtils.delete_deck(deck.referenceId)
 	get_tree().change_scene("res://Scenes/Home/Home.tscn")
