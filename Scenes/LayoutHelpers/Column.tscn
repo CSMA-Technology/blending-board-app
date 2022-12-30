@@ -1,21 +1,31 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scripts/Column.gd" type="Script" id=1]
+[ext_resource path="res://assets/icons/glyphs/plus_white_medium.png" type="Texture" id=2]
 
-[node name="Column" type="GridContainer"]
+[node name="Column" type="PanelContainer"]
 margin_right = 200.0
 margin_bottom = 56.0
 size_flags_horizontal = 3
-size_flags_vertical = 2
+size_flags_vertical = 3
 script = ExtResource( 1 )
 
-[node name="AddRowButton" type="Button" parent="."]
+[node name="GridContainer" type="GridContainer" parent="."]
 margin_right = 200.0
-margin_bottom = 35.0
+margin_bottom = 56.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="AddRowButton" type="Button" parent="GridContainer"]
+unique_name_in_owner = true
+margin_right = 200.0
+margin_bottom = 44.0
 rect_min_size = Vector2( 35, 35 )
 mouse_filter = 1
 size_flags_horizontal = 3
 size_flags_vertical = 0
-text = "+"
+theme_type_variation = "BorderedButton"
+icon = ExtResource( 2 )
+icon_align = 1
 
-[connection signal="pressed" from="AddRowButton" to="." method="_on_AddRowButton_pressed"]
+[connection signal="pressed" from="GridContainer/AddRowButton" to="." method="_on_AddRowButton_pressed"]

@@ -1,4 +1,4 @@
-extends PanelContainer
+extends TabDock
 
 func can_drop_data(position, data):
 	return true

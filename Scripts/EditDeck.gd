@@ -14,7 +14,7 @@ func _ready():
 	else:
 		deck = UserDataUtils.load_deck_by_id(activeDeckId)
 		cards = deck.cards
-		$UI/Buttons/DeleteButton.visible = true
+		$UI/TabDock/HBoxContainer/DeleteButton.visible = true
 	
 	$UI/DeckNameEdit.text = deck.name
 	

@@ -1,15 +1,16 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://assets/fonts/Contrail/Contrail_48.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/icons/glyphs/plus_white_large.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/EditDeck.gd" type="Script" id=2]
-[ext_resource path="res://assets/icons/icons8-trash-can-50.png" type="Texture" id=3]
+[ext_resource path="res://assets/icons/buttons/trash.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/DeleteCardRegion.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/AppBackground.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Edit/SimpleColorPicker.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Styles/MainTheme.tres" type="Theme" id=7]
-
-[sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 0.988235, 0.423529, 0.423529, 0.152941 )
+[ext_resource path="res://assets/icons/buttons/cancel_small.png" type="Texture" id=8]
+[ext_resource path="res://assets/icons/buttons/save_small.png" type="Texture" id=9]
+[ext_resource path="res://assets/icons/buttons/delete_small.png" type="Texture" id=10]
+[ext_resource path="res://Scenes/LayoutHelpers/TabDock.tscn" type="PackedScene" id=11]
 
 [node name="EditDeck" type="Node2D"]
 script = ExtResource( 2 )
@@ -17,73 +18,68 @@ script = ExtResource( 2 )
 [node name="UI" type="Control" parent="."]
 margin_right = 1024.0
 margin_bottom = 600.0
+theme = ExtResource( 7 )
 
 [node name="AppBackground" parent="UI" instance=ExtResource( 5 )]
-
-[node name="Label" type="Label" parent="UI"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -128.0
-margin_top = 15.0
-margin_right = 122.0
-margin_bottom = 90.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = ExtResource( 1 )
-text = "Edit Deck"
-align = 1
-valign = 1
 
 [node name="DeckNameEdit" type="LineEdit" parent="UI"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -100.0
-margin_top = 90.0
-margin_right = 100.0
-margin_bottom = 140.0
+margin_left = -180.0
+margin_top = 17.0
+margin_right = 180.0
+margin_bottom = 79.0
+theme_type_variation = "EditablePageTitle"
+align = 1
 clear_button_enabled = true
 placeholder_text = "Deck Name"
 
-[node name="Buttons" type="HBoxContainer" parent="UI"]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -232.0
-margin_top = 32.0
-margin_right = -24.0
-margin_bottom = 56.0
-alignment = 2
+[node name="TabDock" parent="UI" instance=ExtResource( 11 )]
+margin_left = 832.0
+margin_top = 7.0
+margin_right = 939.0
+margin_bottom = 59.0
+rect_scale = Vector2( 0.85, 0.85 )
+theme_type_variation = "TabPanelTop"
 
-[node name="DeleteButton" type="Button" parent="UI/Buttons"]
-visible = false
-margin_left = 50.0
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/TabDock"]
+margin_left = 2.0
 margin_right = 105.0
-margin_bottom = 24.0
-text = "Delete"
+margin_bottom = 50.0
 
-[node name="CancelButton" type="Button" parent="UI/Buttons"]
-margin_left = 109.0
-margin_right = 163.0
-margin_bottom = 24.0
+[node name="SaveButton" type="Button" parent="UI/TabDock/HBoxContainer"]
+margin_right = 50.0
+margin_bottom = 50.0
 theme = ExtResource( 7 )
-text = "Cancel"
+icon = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="SaveButton" type="Button" parent="UI/Buttons"]
-margin_left = 167.0
-margin_right = 208.0
-margin_bottom = 24.0
+[node name="CancelButton" type="Button" parent="UI/TabDock/HBoxContainer"]
+margin_left = 54.0
+margin_right = 103.0
+margin_bottom = 50.0
 theme = ExtResource( 7 )
-text = "Save"
+icon = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": true
 }
+
+[node name="DeleteButton" type="Button" parent="UI/TabDock/HBoxContainer"]
+visible = false
+margin_left = 107.0
+margin_right = 157.0
+margin_bottom = 52.0
+icon = ExtResource( 10 )
 
 [node name="ScrollContainer" type="ScrollContainer" parent="UI"]
 anchor_left = 0.1
-anchor_top = 0.3
+anchor_top = 0.25
 anchor_right = 0.9
 anchor_bottom = 1.0
+margin_left = -1.40001
+margin_right = -1.40002
 scroll_horizontal_enabled = false
 
 [node name="Columns" type="HBoxContainer" parent="UI/ScrollContainer"]
@@ -91,13 +87,15 @@ unique_name_in_owner = true
 margin_right = 819.2
 margin_bottom = 400.0
 size_flags_horizontal = 3
+custom_constants/separation = 30
 
 [node name="AddColumnButton" type="Button" parent="UI/ScrollContainer/Columns"]
 margin_right = 200.0
 margin_bottom = 400.0
 rect_min_size = Vector2( 200, 400 )
 size_flags_vertical = 0
-text = "+"
+icon = ExtResource( 1 )
+icon_align = 1
 
 [node name="DeleteDialogue" type="ConfirmationDialog" parent="UI"]
 anchor_left = 0.5
@@ -114,17 +112,17 @@ dialog_text = "Are you sure you want to delete this deck?"
 
 [node name="DeleteCardRegion" type="PanelContainer" parent="UI"]
 visible = false
-margin_left = 29.0
-margin_right = 115.0
-margin_bottom = 84.0
-custom_styles/panel = SubResource( 1 )
+margin_left = 14.0
+margin_top = 6.0
+margin_right = 168.0
+margin_bottom = 60.0
+theme_type_variation = "TabPanelTop"
 script = ExtResource( 4 )
 
 [node name="TextureRect" type="TextureRect" parent="UI/DeleteCardRegion"]
-margin_left = 18.0
-margin_top = 17.0
-margin_right = 68.0
-margin_bottom = 67.0
+margin_left = 51.0
+margin_right = 103.0
+margin_bottom = 52.0
 mouse_filter = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -132,13 +130,14 @@ texture = ExtResource( 3 )
 
 [node name="SimpleColorPicker" parent="UI" instance=ExtResource( 6 )]
 margin_left = 7.0
-margin_top = 281.0
+margin_top = 193.0
 margin_right = 59.0
-margin_bottom = 497.0
-rect_scale = Vector2( 0.75, 0.75 )
+margin_bottom = 463.0
+rect_scale = Vector2( 0.85, 0.85 )
+theme_type_variation = "TabPanelLeft"
 
-[connection signal="pressed" from="UI/Buttons/DeleteButton" to="." method="_on_DeleteButton_pressed"]
-[connection signal="pressed" from="UI/Buttons/CancelButton" to="." method="_on_CancelButton_pressed"]
-[connection signal="pressed" from="UI/Buttons/SaveButton" to="." method="_on_SaveButton_pressed"]
+[connection signal="pressed" from="UI/TabDock/HBoxContainer/SaveButton" to="." method="_on_SaveButton_pressed"]
+[connection signal="pressed" from="UI/TabDock/HBoxContainer/CancelButton" to="." method="_on_CancelButton_pressed"]
+[connection signal="pressed" from="UI/TabDock/HBoxContainer/DeleteButton" to="." method="_on_DeleteButton_pressed"]
 [connection signal="pressed" from="UI/ScrollContainer/Columns/AddColumnButton" to="." method="_on_AddColumnButton_pressed"]
 [connection signal="confirmed" from="UI/DeleteDialogue" to="." method="_on_DeleteDialogue_confirmed"]

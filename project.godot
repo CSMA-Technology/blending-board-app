@@ -24,7 +24,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scripts/CardStack.gd"
 }, {
-"base": "GridContainer",
+"base": "PanelContainer",
 "class": "Column",
 "language": "GDScript",
 "path": "res://Scripts/Column.gd"
@@ -44,7 +44,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scripts/EditCard.gd"
 }, {
-"base": "HFlowContainer",
+"base": "PanelContainer",
 "class": "Row",
 "language": "GDScript",
 "path": "res://Scripts/Row.gd"
@@ -106,6 +106,7 @@ input=false
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
+theme/custom="res://Styles/MainTheme.tres"
 
 [input_devices]
 
