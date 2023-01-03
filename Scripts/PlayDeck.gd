@@ -58,8 +58,8 @@ func _on_Minimize_toggled(button_pressed):
 		tween.tween_property($UI/BigCardsArea, "rect_position:y", 220.0, 0.2).from_current()
 		
 	else:
-		tween.tween_property($UI/DrawerPanel, "rect_position:y", 309.0, 0.2).from_current()
-		tween.tween_property($UI/BigCardsArea, "rect_position:y", 106.0, 0.2).from_current()
+		tween.tween_property($UI/DrawerPanel, "rect_position:y", 264.0, 0.2).from_current()
+		tween.tween_property($UI/BigCardsArea, "rect_position:y", 69.0, 0.2).from_current()
 
 func set_big_card_value(cardData: CardData):
 	$UI/BigCardsArea/BigCards.get_child(cardData.column).update_card(cardData)

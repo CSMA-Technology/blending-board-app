@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=31 format=2]
+[gd_resource type="Theme" load_steps=32 format=2]
 
 [ext_resource path="res://assets/fonts/Heebo/Heebo_Regular_22.tres" type="DynamicFont" id=1]
 [ext_resource path="res://assets/fonts/Contrail/Contrail_48.tres" type="DynamicFont" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Styles/gray_button_pressed_stylebox.tres" type="StyleBox" id=11]
 [ext_resource path="res://Styles/red_button_pressed_stylebox.tres" type="StyleBox" id=12]
 [ext_resource path="res://Styles/red_button_stylebox.tres" type="StyleBox" id=13]
+[ext_resource path="res://assets/fonts/Contrail/Contrail_32.tres" type="DynamicFont" id=14]
 
 [sub_resource type="StyleBoxFlat" id=11]
 content_margin_left = 5.0
@@ -113,6 +114,8 @@ Button/styles/normal = ExtResource( 5 )
 Button/styles/pressed = ExtResource( 3 )
 CardLineEdit/base_type = "LineEdit"
 CardLineEdit/styles/normal = SubResource( 3 )
+DeckTitle/base_type = "Label"
+DeckTitle/fonts/font = ExtResource( 14 )
 EditablePageTitle/base_type = "LineEdit"
 EditablePageTitle/fonts/font = ExtResource( 2 )
 GrayButton/base_type = "Button"
@@ -130,7 +133,7 @@ GrayButton/styles/pressed = ExtResource( 11 )
 HideTray/base_type = "CheckButton"
 HideTray/icons/off = ExtResource( 8 )
 HideTray/icons/on = ExtResource( 9 )
-HideTray/styles/normal = ExtResource( 11 )
+HideTray/styles/normal = ExtResource( 5 )
 HideTray/styles/pressed = ExtResource( 3 )
 Label/colors/font_color = Color( 0, 0, 0, 1 )
 Label/fonts/font = ExtResource( 1 )
