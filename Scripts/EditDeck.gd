@@ -51,11 +51,12 @@ func on_card_dropped_in_column(card_data: CardData, row: int, column: Column):
 
 func add_empty_card_to_deck(row: int, column: Column):
 	var newCardData = CardData.new("", column.get_index(), row)
-	add_card_to_deck(newCardData)
+	add_card_to_deck(newCardData, true)
 
-func add_card_to_deck(card_data: CardData):
+func add_card_to_deck(card_data: CardData, edit_mode := false):
 	deck.cards.append(card_data)
 	var new_edit_card = EditCard.instance()
+	new_edit_card.start_in_edit_mode = edit_mode
 	new_edit_card.data = card_data
 	fill_columns(card_data)
 	add_card_to_columns(new_edit_card)
