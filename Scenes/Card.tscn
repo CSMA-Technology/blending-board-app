@@ -5,11 +5,11 @@
 [ext_resource path="res://Styles/WhiteCard.tres" type="StyleBox" id=3]
 
 [node name="Card" type="Control"]
-anchor_right = 0.049
-anchor_bottom = 0.083
-margin_right = -50.176
-margin_bottom = -49.8
-rect_min_size = Vector2( 50, 50 )
+anchor_right = 0.044
+anchor_bottom = 0.075
+margin_right = -45.056
+margin_bottom = -45.0
+rect_min_size = Vector2( 45, 45 )
 mouse_filter = 1
 script = ExtResource( 1 )
 

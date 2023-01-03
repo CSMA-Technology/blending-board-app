@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/PlayDeck.gd" type="Script" id=1]
-[ext_resource path="res://assets/fonts/Contrail/Contrail_48.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Scenes/AppBackground.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Styles/MainTheme.tres" type="Theme" id=4]
 [ext_resource path="res://Scenes/LayoutHelpers/TabDock.tscn" type="PackedScene" id=5]
@@ -17,26 +16,26 @@ margin_bottom = 600.0
 [node name="AppBackground" parent="UI" instance=ExtResource( 3 )]
 
 [node name="DeckName" type="Label" parent="UI"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -153.5
-margin_top = 30.0
-margin_right = 153.5
-margin_bottom = 79.0
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -381.0
+margin_top = 3.0
+margin_right = -18.0
+margin_bottom = 64.0
+theme = ExtResource( 4 )
+theme_type_variation = "DeckTitle"
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = ExtResource( 2 )
 text = "Deck Name"
-align = 1
+align = 2
 valign = 1
 
 [node name="BigCardsArea" type="Control" parent="UI"]
-anchor_top = 0.177
+anchor_top = 0.115
 anchor_right = 1.0
-anchor_bottom = 0.44
+anchor_bottom = 0.378
 margin_left = 20.0
-margin_top = -0.199997
 margin_right = -16.0
-margin_bottom = -3.05176e-05
+margin_bottom = 0.199951
 
 [node name="BigCards" type="HBoxContainer" parent="UI/BigCardsArea"]
 anchor_right = 1.0
@@ -45,27 +44,33 @@ size_flags_horizontal = 4
 alignment = 1
 
 [node name="DrawerPanel" type="Panel" parent="UI"]
-anchor_top = 0.515
+anchor_left = -0.008
+anchor_top = 0.48
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 8.192
+margin_top = -24.0
 theme = ExtResource( 4 )
 theme_type_variation = "Tray"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="UI/DrawerPanel"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 64.0
-margin_top = 10.0
-margin_right = -64.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -492.0
+margin_top = -160.0
+margin_right = 492.0
+margin_bottom = 160.0
 scroll_horizontal_enabled = false
 
 [node name="CardDrawer" type="HBoxContainer" parent="UI/DrawerPanel/ScrollContainer"]
 unique_name_in_owner = true
-margin_right = 896.0
-margin_bottom = 281.0
+margin_right = 984.0
+margin_bottom = 320.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_constants/separation = 50
+custom_constants/separation = 20
 alignment = 1
 
 [node name="Minimize" type="CheckButton" parent="UI/DrawerPanel"]
@@ -79,11 +84,11 @@ theme = ExtResource( 4 )
 theme_type_variation = "HideTray"
 
 [node name="TabDock" parent="UI" instance=ExtResource( 5 )]
-margin_left = 96.0
+margin_left = 32.0
 margin_top = 8.0
-margin_right = 162.0
+margin_right = 98.0
 margin_bottom = 72.0
-rect_scale = Vector2( 0.85, 0.85 )
+rect_scale = Vector2( 0.75, 0.75 )
 
 [node name="HomeButton" type="Button" parent="UI/TabDock"]
 margin_left = 2.0
