@@ -11,15 +11,18 @@ mouse_filter = 1
 
 [node name="LineEdit" type="LineEdit" parent="." index="2"]
 visible = false
-margin_left = 8.0
+margin_left = 4.0
 margin_top = 7.0
-margin_right = 42.0
-margin_bottom = 31.0
+margin_right = 46.0
+margin_bottom = 42.0
 mouse_filter = 1
 theme_type_variation = "CardLineEdit"
 custom_constants/minimum_spaces = 0
 align = 1
+max_length = 5
+expand_to_text_length = true
 
 [connection signal="gui_input" from="Value" to="." method="_on_Value_gui_input"]
 [connection signal="focus_exited" from="LineEdit" to="." method="_on_LineEdit_focus_exited"]
+[connection signal="text_changed" from="LineEdit" to="." method="_on_LineEdit_text_changed"]
 [connection signal="text_entered" from="LineEdit" to="." method="_on_LineEdit_text_entered"]
