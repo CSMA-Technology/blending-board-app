@@ -1,6 +1,7 @@
 extends Card
 
 signal big_card_clicked(data)
+signal big_card_swiped_out(column)
 
 const VOWELS = ['a', 'e', 'i', 'o', 'u', 'y']
 const yellowCard = preload("res://Styles/YellowCard.tres")
@@ -27,4 +28,9 @@ func _on_Value_draw():
 
 func _on_BigCard_gui_input(event):
 	if event is InputEventScreenTouch and !event.pressed:
-		emit_signal("big_card_clicked", data)
+		var card_rect = $Background.get_global_rect()
+		var touch_end_pos = get_global_mouse_position()
+		if card_rect.has_point(touch_end_pos):
+			emit_signal("big_card_clicked", data)
+		else:
+			emit_signal("big_card_swiped_out", column)

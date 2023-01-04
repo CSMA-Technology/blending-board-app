@@ -29,9 +29,11 @@ func _ready():
 	
 	for n in columnCount:
 		var newBigCard = BigCard.instance()
+		newBigCard.set_column(n)
 		newBigCard.update_card(CardData.new("", n))
 		$UI/BigCardsArea/BigCards.add_child(newBigCard)
 		newBigCard.connect("big_card_clicked", self, "_on_BigCard_clicked")
+		newBigCard.connect("big_card_swiped_out", self, "_on_BigCard_swiped_out")
 
 func _on_Card_clicked(cardData):
 	set_big_card_value(cardData)
@@ -39,6 +41,9 @@ func _on_Card_clicked(cardData):
 func _on_BigCard_clicked(data):
 	var newData = find_next_card_in_column(data)
 	set_big_card_value(newData) 
+
+func _on_BigCard_swiped_out(column):
+	$UI/BigCardsArea/BigCards.get_child(column).visible = false
 
 func find_next_card_in_column(data: CardData):
 	var startingIdx = deck.cards.find(data)
@@ -62,4 +67,6 @@ func _on_Minimize_toggled(button_pressed):
 		tween.tween_property($UI/BigCardsArea, "rect_position:y", 69.0, 0.2).from_current()
 
 func set_big_card_value(cardData: CardData):
-	$UI/BigCardsArea/BigCards.get_child(cardData.column).update_card(cardData)
+	var big_card = $UI/BigCardsArea/BigCards.get_child(cardData.column)
+	big_card.visible = true
+	big_card.update_card(cardData)
