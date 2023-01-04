@@ -42,8 +42,23 @@ func _on_BigCard_clicked(data):
 	var newData = find_next_card_in_column(data)
 	set_big_card_value(newData) 
 
-func _on_BigCard_swiped_out(column):
-	$UI/BigCardsArea/BigCards.get_child(column).visible = false
+func _on_BigCard_swiped_out(column, direction):
+	var big_card = $UI/BigCardsArea/BigCards.get_child(column)
+	big_card.visible = false
+	
+	var temp_card = BigCard.instance()
+	temp_card.update_card(big_card.data)
+	$UI/BigCardsArea/BigCards.add_child(temp_card)
+	$UI/BigCardsArea/BigCards.move_child(temp_card, column)
+	
+	var tween = get_tree().create_tween()
+	tween.connect("finished", self, "delete_temp_card", [temp_card])
+	var movement = Vector2(600, 600) * direction
+	var final_position = temp_card.rect_global_position + movement
+	tween.tween_property(temp_card, "rect_position", temp_card.rect_global_position + movement, 0.5)
+
+func delete_temp_card(card):
+	card.queue_free()
 
 func find_next_card_in_column(data: CardData):
 	var startingIdx = deck.cards.find(data)
