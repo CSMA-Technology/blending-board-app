@@ -7,12 +7,12 @@ const Column = preload("res://Scenes/LayoutHelpers/Column.tscn")
 const MAX_COLUMNS = 5
 
 func _ready():
-	var activeDeckId = UserDataUtils.get_active_deck_id()
+	var activeDeckFile = UserDataUtils.get_active_deck()
 	var cards = []
-	if activeDeckId == -1:
-		deck = DeckData.new("", cards)	
+	if activeDeckFile == "":
+		deck = DeckData.new("", cards, false)
 	else:
-		deck = UserDataUtils.load_deck_by_id(activeDeckId)
+		deck = UserDataUtils.load_deck(activeDeckFile)
 		cards = deck.cards
 		$UI/TabDock/HBoxContainer/DeleteButton.visible = true
 	
@@ -103,7 +103,6 @@ func _on_CancelButton_pressed():
 
 func _on_DeleteButton_pressed():
 	$UI/DeleteDialog.popup_centered()
-
 
 func _on_DeleteDialog_confirmed():
 	UserDataUtils.delete_deck(deck.referenceId)

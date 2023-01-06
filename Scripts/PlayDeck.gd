@@ -2,7 +2,7 @@ extends Node2D
 
 var deck: DeckData
 var bigTiles: Array
-var activeDeckId: int
+var activeDeckFile: String
 var columnCount: int
 const Card = preload("res://Scenes/Card.tscn")
 const Column = preload("res://Scenes/LayoutHelpers/Column.tscn")
@@ -11,8 +11,8 @@ const BigCard = preload("res://Scenes/Play/BigCard.tscn")
 func _ready():
 	columnCount = 0
 	
-	activeDeckId = UserDataUtils.get_active_deck_id()
-	deck = UserDataUtils.load_deck_by_id(activeDeckId)
+	activeDeckFile = UserDataUtils.get_active_deck()
+	deck = UserDataUtils.load_deck(activeDeckFile)
 	
 	$UI/DeckName.text = deck.name
 	

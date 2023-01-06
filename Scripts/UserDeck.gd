@@ -3,19 +3,20 @@ extends Deck
 class_name UserDeck
 
 func _ready():
-	print(deckName)
 	$Cards/TopCard/DeckName.text = deckName
+	if isPreloaded: 
+		$EditButton.visible = false
 
 func _on_TopCard_gui_input(event:InputEvent):
 	if event is InputEventScreenTouch:
 		var tween = create_tween()
 		tween.tween_property($Cards/TopCard, "modulate", Color.floralwhite, 0)
 		if !event.pressed:
-			UserDataUtils.set_active_deck_id(deckId)
+			UserDataUtils.set_active_deck(deckFilePath)
 			get_tree().change_scene("res://Scenes/Play/PlayDeck.tscn")
 
 func _on_EditButton_pressed():
-	UserDataUtils.set_active_deck_id(deckId)
+	UserDataUtils.set_active_deck(deckFilePath)
 	get_tree().change_scene("res://Scenes/Edit/EditDeck.tscn")
 
 func _on_EditButton_button_down():
