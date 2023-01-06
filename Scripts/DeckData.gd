@@ -5,12 +5,12 @@ class_name DeckData
 var name: String setget set_name, get_name
 var cards: Array # Array of CardData
 var referenceId: int setget , get_ref_id
-var filePath: String
 var isPreloaded: bool
 
-func _init(name: String, cards: Array, referenceId: int = -1):
+func _init(name: String, cards: Array, isPreloaded := true, referenceId: int = -1):
 	self.name = name
 	self.cards = cards
+	self.isPreloaded = isPreloaded
 	if referenceId == -1:
 		generate_ref_id()
 	else: 

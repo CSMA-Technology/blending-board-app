@@ -31,6 +31,7 @@ func save_deck(deckData: DeckData):
 	var data = {
 		name = deckData.name,
 		refId = deckData.referenceId, 
+		isPreloaded = deckData.isPreloaded,
 		cards = []
 	}
 	for card in deckData.cards:
@@ -54,12 +55,11 @@ func load_deck(fileName: String):
 	var cardObjects = []
 	for card in deckDataJson.cards:
 		cardObjects.append(CardData.new(card.value, card.column, card.row, card.color, card.mergeStatus))
-	var deckData = DeckData.new(deckDataJson.name, cardObjects, deckDataJson.refId)
+	var deckData = DeckData.new(deckDataJson.name, cardObjects, deckDataJson.isPreloaded, deckDataJson.refId)
 	return deckData
 
 func open_deck_file(fileName: String):
 	var file = File.new()
-#	var fullFilePath = "user://data/" + fileName
 	if not file.file_exists(fileName):
 		print("No deck exists with this name")
 		return
@@ -74,7 +74,8 @@ func get_deck_metadata(fileName: String):
 	var metaData = {
 		name = deckDataJson.name,
 		refId = deckDataJson.refId,
-		fileName = fileName
+		fileName = fileName,
+		isPreloaded = deckDataJson.isPreloaded
 	}
 	return metaData
 
@@ -105,5 +106,5 @@ func delete_deck(refId: int):
 	var dir = Directory.new()
 	var filePath = "user://data/" + str(refId) + ".dat"
 	if dir.remove(filePath) != OK:
-		print("An error occurred while trying to delete this file: " + ProjectSettings.globalize_path(filePath))
+		printerr("An error occurred while trying to delete this file: " + ProjectSettings.globalize_path(filePath))
 		

@@ -10,7 +10,7 @@ func _ready():
 	var activeDeckFile = UserDataUtils.get_active_deck()
 	var cards = []
 	if activeDeckFile == "":
-		deck = DeckData.new("", cards)	
+		deck = DeckData.new("", cards, false)
 	else:
 		deck = UserDataUtils.load_deck(activeDeckFile)
 		cards = deck.cards
@@ -103,7 +103,6 @@ func _on_CancelButton_pressed():
 
 func _on_DeleteButton_pressed():
 	$UI/DeleteDialog.popup_centered()
-
 
 func _on_DeleteDialog_confirmed():
 	UserDataUtils.delete_deck(deck.referenceId)

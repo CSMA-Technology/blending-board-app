@@ -3,8 +3,9 @@ extends Deck
 class_name UserDeck
 
 func _ready():
-	print(deckName)
 	$Cards/TopCard/DeckName.text = deckName
+	if isPreloaded: 
+		$EditButton.visible = false
 
 func _on_TopCard_gui_input(event:InputEvent):
 	if event is InputEventScreenTouch:

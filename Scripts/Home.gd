@@ -14,8 +14,8 @@ func _ready():
 			var deckMetadata = UserDataUtils.get_deck_metadata(deckFile)
 			var deck = UserDeck.instance()
 			deck.deckName = deckMetadata.name
-			deck.deckId = deckMetadata.refId
 			deck.deckFilePath = deckMetadata.fileName
+			deck.isPreloaded = deckMetadata.isPreloaded
 			$UI/ScrollContainer/Decks.add_child(deck)
 		if $UI/ScrollContainer/Decks.get_child_count() > 5: 
 			$UI/ScrollContainer/Decks/NewDeck.visible = false
