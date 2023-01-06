@@ -83,10 +83,11 @@ func get_all_deck_files():
 	var files = []
 	var dir = Directory.new()
 	var basePaths = []
-	if OS.is_debug_build():
-		basePaths.append(ProjectSettings.globalize_path("res://").plus_file("data"))
-	else: 
-		basePaths.append(OS.get_executable_path().get_base_dir().plus_file("data"))
+#	if OS.is_debug_build():
+#		basePaths.append(ProjectSettings.globalize_path("res://").plus_file("data"))
+#	else: 
+#		basePaths.append(OS.get_executable_path().get_base_dir().plus_file("data"))
+	basePaths.append(ProjectSettings.globalize_path("res://").plus_file("data"))
 	basePaths.append(ProjectSettings.globalize_path("user://").plus_file("data"))
 	for path in basePaths: 
 		if dir.open(path) == OK:
