@@ -19,7 +19,7 @@ margin_right = 140.0
 margin_bottom = 125.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 2 )
-text = "PHONICS BOARD"
+text = "BLEND"
 align = 1
 valign = 1
 
