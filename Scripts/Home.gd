@@ -6,8 +6,6 @@ func _ready():
 	GameAnalytics.init() # Sandbox mode for now
 	randomize()
 	
-	UserDataUtils.initialize_user_app_data()
-
 	var deckFiles = UserDataUtils.get_all_deck_files()
 	if !deckFiles.empty():
 		deckFiles.sort()
