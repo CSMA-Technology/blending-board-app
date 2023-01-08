@@ -1,6 +1,7 @@
 extends Node2D
 
 func _ready():
+	UserDataUtils.initialize_user_app_data()
 	PreloadDecks.run()
 	
 	var tween = get_tree().create_tween()
