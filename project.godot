@@ -89,6 +89,7 @@ config/icon="res://assets/icons/icon.png"
 
 UserDataUtils="*res://Scripts/UserDataUtils.gd"
 GameAnalytics="*res://addons/game_analytics/GameAnalytics.gd"
+PreloadDecks="*res://Scripts/Data/PreloadDecks.gd"
 
 [display]
 

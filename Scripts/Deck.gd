@@ -2,8 +2,6 @@ extends Control
 
 class_name Deck
 
-var data: DeckData
-
 var deckName: String
-var deckFilePath: String
-var isPreloaded: bool
+var refId: int
+var is_editable: bool
