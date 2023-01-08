@@ -57,7 +57,7 @@ func _notification(what):
 			end_session()
 			yield(self, "publish_completed")
 		get_tree().quit()
-	if initialized and what == MainLoop.NOTIFICATION_WM_FOCUS_IN:
+	if initialized and !session_id and what == MainLoop.NOTIFICATION_WM_FOCUS_IN:
 		start_session()
 	if session_id and what == MainLoop.NOTIFICATION_WM_FOCUS_OUT:
 		end_session()

@@ -98,4 +98,3 @@ func delete_deck(refId: int):
 	var filePath = "user://data/" + str(refId) + ".dat"
 	if dir.remove(filePath) != OK:
 		printerr("An error occurred while trying to delete this file: " + ProjectSettings.globalize_path(filePath))
-		
