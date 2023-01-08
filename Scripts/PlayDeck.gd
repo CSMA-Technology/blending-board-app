@@ -2,7 +2,7 @@ extends Node2D
 
 var deck: DeckData
 var bigTiles: Array
-var activeDeckFile: String
+var activeDeckId: int
 var columnCount: int
 const Card = preload("res://Scenes/Card.tscn")
 const Column = preload("res://Scenes/LayoutHelpers/Column.tscn")
@@ -11,8 +11,8 @@ const BigCard = preload("res://Scenes/Play/BigCard.tscn")
 func _ready():
 	columnCount = 0
 	
-	activeDeckFile = UserDataUtils.get_active_deck()
-	deck = UserDataUtils.load_deck(activeDeckFile)
+	activeDeckId = UserDataUtils.get_active_deck_id()
+	deck = UserDataUtils.load_deck_by_id(activeDeckId)
 	
 	$UI/DeckName.text = deck.name
 	
@@ -78,8 +78,8 @@ func _on_Minimize_toggled(button_pressed):
 		tween.tween_property($UI/BigCardsArea, "rect_position:y", 220.0, 0.2).from_current()
 		
 	else:
-		tween.tween_property($UI/DrawerPanel, "rect_position:y", 264.0, 0.2).from_current()
-		tween.tween_property($UI/BigCardsArea, "rect_position:y", 69.0, 0.2).from_current()
+		tween.tween_property($UI/DrawerPanel, "rect_position:y", 215.0, 0.2).from_current()
+		tween.tween_property($UI/BigCardsArea, "rect_position:y", 60.0, 0.2).from_current()
 
 func set_big_card_value(cardData: CardData):
 	var big_card = $UI/BigCardsArea/BigCards.get_child(cardData.column)
