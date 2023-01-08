@@ -1,6 +1,8 @@
 extends Node2D
 
 func _ready():
+	PreloadDecks.run()
+	
 	var tween = get_tree().create_tween()
 	tween.connect("finished", self, "_on_Timer_timeout")
 	tween.tween_property($Branding/DaydreamTitle, "modulate", Color.white, 1.2)
