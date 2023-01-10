@@ -68,15 +68,17 @@ func open_deck_file(fileName: String):
 	var fullFilePath = "user://data".plus_file(fileName)
 	if not file.file_exists(fullFilePath):
 		printerr("No deck exists with this name")
-		return
+		return {}
 	if file.open(fullFilePath, File.READ) != 0:
 		printerr("Error opening this file: ", fullFilePath)
-		return
+		return {}
 	var deckDataJson = JSON.parse(file.get_as_text()).result
 	return deckDataJson
 
 func get_deck_metadata(fileName: String):
 	var deckDataJson = open_deck_file(fileName)
+	if deckDataJson.empty():
+		return {}
 	if !deckDataJson.has("is_editable"):
 		deckDataJson.is_editable = true
 	if !deckDataJson.has("created_ts"):
