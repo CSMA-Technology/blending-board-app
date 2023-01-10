@@ -18,6 +18,7 @@ func _ready():
 		data = CardData.new("T", 0, 0, "")
 	set_text(data.value)
 	if start_in_edit_mode:
+		yield(get_tree(), "idle_frame")
 		enter_edit_mode()
 
 func _process(_delta):

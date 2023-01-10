@@ -78,6 +78,10 @@ func start_session():
 	})
 	var url = base_url + '/v2/' + _game_key + '/init'
 	var headers = ['Content-Type: application/json', 'Authorization: ' + get_auth_header(body)]
+	while http_request.get_http_client_status() != HTTPClient.STATUS_DISCONNECTED:
+		print("Waiting for request to complete before init")
+		yield(http_request, "request_completed")
+	print("Firing init request")
 	var err = http_request.request(url, headers, true, HTTPClient.METHOD_POST, body)
 	assert(err == OK)
 	http_request.connect("request_completed", self, '_on_init_request_completed', [], CONNECT_ONESHOT)
@@ -130,18 +134,18 @@ func add_event(category: String, fields: Dictionary = {}):
 	while is_publishing_events:
 		print("Publish in progress. Waiting to add event until publish is completed.")
 		yield(self, "publish_completed")
-	var user_id = OS.get_unique_id()
-	if !user_id: #OS.get_unique_id does not work on web
-		user_id = 'test'
+	var user_id = 'test_user'
+	if OS.get_name().to_lower() != 'html5' and OS.get_name().to_lower() != 'uwp': #OS.get_unique_id does not work on these
+		user_id = OS.get_unique_id()
 	var default_fields = {
 		"device": "unknown",
 		"v": 2,
 		"user_id": user_id,
 		"client_ts": client_ts,
 		"sdk_version": "rest api v2",
-		"os_version": OS.get_name().to_lower() + " 10",
+		"os_version": map_platform_to_GA(OS.get_name()) + " ",
 		"manufacturer": "",
-		"platform": OS.get_name().to_lower(),
+		"platform": map_platform_to_GA(OS.get_name()),
 		"session_id": session_id,
 		"session_num": 1
 	}
@@ -166,7 +170,16 @@ func publish_events():
 	var body = JSON.print(queued_events)
 	var url = base_url + '/v2/' + _game_key + '/events'
 	var headers = ['Content-Type: application/json', 'Authorization: ' + get_auth_header(body)]
+	while http_request.get_http_client_status() != HTTPClient.STATUS_DISCONNECTED:
+		print("Waiting for request to complete before publish")
+		yield(http_request, "request_completed")
 	var err = http_request.request(url, headers, true, HTTPClient.METHOD_POST, body)
 	assert(err == OK)
 	http_request.connect("request_completed", self, '_on_event_request_completed', [], CONNECT_ONESHOT)
-	
+
+func map_platform_to_GA(platform: String):
+	if platform.to_lower() == 'html5':
+		return 'webplayer'
+	if platform.to_lower() == 'uwp':
+		return 'uwp_mobile'
+	return platform
