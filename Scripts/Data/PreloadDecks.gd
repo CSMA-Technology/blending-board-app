@@ -200,9 +200,12 @@ var decks = [level_1_deck, level_2_deck]
 
 func run():
 	for deck in decks:
-		var cards = []
-		var deckData: DeckData
-		for card in deck.cards:
-			cards.append(CardData.new(card.value, card.column, card.row))
-		deckData = DeckData.new(deck.name, cards, deck.is_editable, deck.referenceId)
-		UserDataUtils.save_deck(deckData)
+		var file = File.new()
+		var fullFilePath = "user://data".plus_file(str(deck.referenceId) + ".dat")
+		if not file.file_exists(fullFilePath):
+			var cards = []
+			var deckData: DeckData
+			for card in deck.cards:
+				cards.append(CardData.new(card.value, card.column, card.row))
+			deckData = DeckData.new(deck.name, cards, deck.is_editable, deck.referenceId)
+			UserDataUtils.save_deck(deckData)

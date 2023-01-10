@@ -21,10 +21,16 @@ func save_deck(deckData: DeckData):
 	var file = File.new()
 	if file.open(filePath, File.WRITE) != 0:
 		print("Error opening this file: ", ProjectSettings.globalize_path(filePath))
+	var current_time = Time.get_datetime_string_from_system()
+	if deckData.created_ts.empty():
+		deckData.set_created_ts(current_time)
+	deckData.set_modified_ts(current_time)
 	var data = {
 		name = deckData.name,
 		refId = deckData.referenceId, 
 		is_editable = deckData.is_editable,
+		created_ts = deckData.created_ts,
+		modified_ts = deckData.modified_ts,
 		cards = []
 	}
 	for card in deckData.cards:
@@ -50,7 +56,7 @@ func load_deck(fileName: String):
 	var cardObjects = []
 	for card in deckDataJson.cards:
 		cardObjects.append(CardData.new(card.value, card.column, card.row, card.color, card.mergeStatus))
-	var deckData = DeckData.new(deckDataJson.name, cardObjects, deckDataJson.is_editable, deckDataJson.refId)
+	var deckData = DeckData.new(deckDataJson.name, cardObjects, deckDataJson.is_editable, deckDataJson.refId, deckDataJson.created_ts, deckDataJson.modified_ts)
 	return deckData
 
 func open_deck_file(fileName: String):
@@ -72,7 +78,9 @@ func get_deck_metadata(fileName: String):
 	var metaData = {
 		name = deckDataJson.name,
 		refId = deckDataJson.refId,
-		is_editable = deckDataJson.is_editable
+		is_editable = deckDataJson.is_editable, 
+		created_ts = deckDataJson.created_ts,
+		modified_ts = deckDataJson.modified_ts
 	}
 	return metaData
 

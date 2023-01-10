@@ -7,6 +7,7 @@ var columnCount: int
 const Card = preload("res://Scenes/Card.tscn")
 const Column = preload("res://Scenes/LayoutHelpers/Column.tscn")
 const BigCard = preload("res://Scenes/Play/BigCard.tscn")
+const RemoveCard = preload("res://Scenes/Play/RemoveCard.tscn")
 
 func _ready():
 	columnCount = 0
@@ -22,6 +23,7 @@ func _ready():
 			var new_column = Column.instance()
 			new_column.read_only = true
 			$"%CardDrawer".add_child(new_column)
+			$"%CardDrawer".get_child(card.column).add_card(RemoveCard.instance())
 		var newCard = Card.instance()
 		newCard.data = card
 		$"%CardDrawer".get_child(card.column).add_card(newCard)
