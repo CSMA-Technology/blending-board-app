@@ -202,6 +202,8 @@ func run():
 	for deck in decks:
 		var file = File.new()
 		var fullFilePath = "user://data".plus_file(str(deck.referenceId) + ".dat")
+#		if file.file_exists(fullFilePath):
+#			var metadata = UserDataUtils.get_deck_metadata()
 		if not file.file_exists(fullFilePath):
 			var cards = []
 			var deckData: DeckData

@@ -53,6 +53,10 @@ func load_deck(fileName: String):
 	var deckDataJson = open_deck_file(fileName)
 	if !deckDataJson.has("is_editable"):
 		deckDataJson.is_editable = true
+	if !deckDataJson.has("created_ts"):
+		deckDataJson.created_ts = ""
+	if !deckDataJson.has("modified_ts"):
+		deckDataJson.modified_ts = ""
 	var cardObjects = []
 	for card in deckDataJson.cards:
 		cardObjects.append(CardData.new(card.value, card.column, card.row, card.color, card.mergeStatus))
@@ -75,6 +79,10 @@ func get_deck_metadata(fileName: String):
 	var deckDataJson = open_deck_file(fileName)
 	if !deckDataJson.has("is_editable"):
 		deckDataJson.is_editable = true
+	if !deckDataJson.has("created_ts"):
+		deckDataJson.created_ts = ""
+	if !deckDataJson.has("modified_ts"):
+		deckDataJson.modified_ts = ""
 	var metaData = {
 		name = deckDataJson.name,
 		refId = deckDataJson.refId,
